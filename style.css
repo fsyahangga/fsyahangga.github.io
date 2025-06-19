@@ -152,6 +152,21 @@ h2 {
   margin-top: 1rem;
   color: #94a3b8;
 }
+#contact {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+#contact ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+#contact li {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
 
 
 footer {
