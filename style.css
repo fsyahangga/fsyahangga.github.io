@@ -90,6 +90,21 @@ h2 {
 .card:hover {
   transform: translateY(-5px);
 }
+.timeline, .project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.timeline-item, .project-item {
+  background: #1e293b;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+.timeline-item h3, .project-item h3 {
+  margin-bottom: 0.5rem;
+  color: #38bdf8;
+}
 
 footer {
   text-align: center;
