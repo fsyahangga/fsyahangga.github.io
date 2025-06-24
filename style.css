@@ -320,14 +320,15 @@ h2 {
 }
 
 .icon-circle {
-  background-color: #0f172a;
+  background-color: #1d4ed8; /* biru terang, sebelumnya #0f172a */
   width: 60px;
   height: 60px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.5); /* glow biru */
+  transition: background-color 0.3s ease;
 }
 
 .icon-circle img {
