@@ -203,11 +203,6 @@ h2 {
   padding: 2rem 1rem;
 }
 
-#contact {
-  text-align: center;
-  padding: 2rem 1rem;
-}
-
 .contact-grid {
   display: flex;
   flex-wrap: wrap;
@@ -402,14 +397,14 @@ h2 {
   color: #38bdf8;
   text-align: center;
   margin-bottom: 2rem;
-  display: inline-block;
+  display: block;  /* Penting: ganti dari flex ke block */
+  border-bottom: 2px solid #334155;
   position: relative;
+  padding-bottom: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#contact h2::before {
-  content: '';
-  display: none; /* nonaktifkan icon dari CSS sebelum ini jika ada */
-}
 
 
 footer {
@@ -479,7 +474,7 @@ footer {
 /*   background-color: #1e293b; */
   padding: 0.5rem;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+/*   box-shadow: 0 4px 12px rgba(0,0,0,0.3); */
   z-index: 1000;
   gap: 0.75rem;
 }
