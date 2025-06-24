@@ -635,14 +635,15 @@ section h2::before {
 }
 .company-logo {
   display: block;
-  margin: 0 auto 0.5rem auto; /* Tengah + jarak bawah */
-  width: 120px;
-  height: 120px;
-  border-radius: 80%;
-  object-fit: cover;
-  margin-bottom: 0.5rem;
-  border: 2px solid #38bdf8;
-  box-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+  margin: 0 auto 0.75rem auto;
+  width: 60px;
+  height: auto;
+  max-height: 120px;
+  object-fit: contain;
+  border: 1px solid #334155;
+  background-color: #fff;
+  padding: 4px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
 }
 .experience-item {
   display: flex;
