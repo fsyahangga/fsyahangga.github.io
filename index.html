@@ -25,26 +25,26 @@
 <body>
   <script>
     const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll(".floating-menu a");
+    const menuLinks = document.querySelectorAll(".floating-menu a");
   
     window.addEventListener("scroll", () => {
-      let current = "";
-  
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 100;
+      let currentSection = "";
+      sections.forEach((sec) => {
+        const sectionTop = sec.offsetTop - 150;
         if (scrollY >= sectionTop) {
-          current = section.getAttribute("id");
+          currentSection = sec.getAttribute("id");
         }
       });
   
-      navLinks.forEach((link) => {
+      menuLinks.forEach((link) => {
         link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
+        if (link.getAttribute("href") === "#" + currentSection) {
           link.classList.add("active");
         }
       });
     });
   </script>
+
 
   <nav>
     <div class="logo">fsyahangga<span>.</span></div>
