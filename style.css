@@ -79,7 +79,16 @@ section {
   max-width: 900px;
   margin: auto;
   scroll-margin-top: 90px; /* sesuai tinggi nav */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+
+section.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 h2 {
   font-size: 1.8rem;
