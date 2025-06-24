@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: 'Inter', sans-serif;
@@ -451,5 +454,10 @@ footer {
     font-size: 1.3rem;
     padding: 0.4rem;
   }
+}
+.floating-menu a.active {
+  background-color: #38bdf8;
+  color: #0f172a;
+  transform: scale(1.2);
 }
 
