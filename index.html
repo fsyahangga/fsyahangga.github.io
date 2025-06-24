@@ -8,6 +8,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.png" type="image/png">
+  <style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
 </head>
   <script>
   function toggleSidebar() {
@@ -15,8 +21,31 @@
     sidebar.classList.toggle('show');
   }
 </script>
-
+  
 <body>
+  <script>
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".floating-menu a");
+  
+    window.addEventListener("scroll", () => {
+      let current = "";
+  
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 100;
+        if (scrollY >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+  
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+
   <nav>
     <div class="logo">fsyahangga<span>.</span></div>
 <!--     <ul>
