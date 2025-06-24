@@ -9,8 +9,10 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.png" type="image/png">
   <style>
-
-</style>
+    html {
+      scroll-behavior: smooth !important;
+    }
+  </style>
 
 </head>
   <script>
@@ -22,18 +24,19 @@
   
 <body>
   <script>
+  document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll("section");
     const menuLinks = document.querySelectorAll(".floating-menu a");
-  
+
     window.addEventListener("scroll", () => {
       let currentSection = "";
       sections.forEach((sec) => {
         const sectionTop = sec.offsetTop - 150;
-        if (scrollY >= sectionTop) {
+        if (window.scrollY >= sectionTop) {
           currentSection = sec.getAttribute("id");
         }
       });
-  
+
       menuLinks.forEach((link) => {
         link.classList.remove("active");
         if (link.getAttribute("href") === "#" + currentSection) {
@@ -41,7 +44,9 @@
         }
       });
     });
-  </script>
+  });
+</script>
+
 
 
   <nav>
