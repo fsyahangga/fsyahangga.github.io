@@ -177,45 +177,60 @@ h2 {
 }
 
 .contact-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
-  justify-items: center;
   margin-top: 2rem;
 }
 
 .contact-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem;
+  background: rgba(30, 41, 59, 0.6);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 140px;
+}
+
+.contact-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(56, 189, 248, 0.35);
 }
 
 .contact-box a {
-  color: #38bdf8;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  word-break: break-word;
-  max-width: 200px;
+  color: #7dd3fc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 .icon-circle {
-  background-color: #0f172a;
   width: 64px;
   height: 64px;
   border-radius: 50%;
+  background: #1d4ed8;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.5);
 }
 
 .icon-circle img {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
 }
+
+.contact-box span {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #bae6fd;
+}
+
 
 
 .skill-bars {
