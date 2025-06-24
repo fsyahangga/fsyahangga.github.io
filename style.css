@@ -588,6 +588,35 @@ section h2::before {
   color: #7dd3fc;
   text-decoration: underline;
 }
+.project-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.detail-block {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.detail-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.detail-block h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #7dd3fc;
+}
+
+.detail-block p {
+  margin: 0.2rem 0 0 0;
+  color: #f1f5f9;
+  text-align: justify;
+}
 .timeline-vertical {
   display: flex;
   flex-direction: column;
