@@ -157,16 +157,45 @@ h2 {
   padding: 2rem 1rem;
 }
 
-#contact ul {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0 0;
+#contact {
+  text-align: center;
+  padding: 2rem 1rem;
 }
 
-#contact li {
-  margin: 0.5rem 0;
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   font-size: 1.1rem;
 }
+
+.contact-item a {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.icon-circle {
+  background-color: #0f172a;
+  color: white;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
 .skill-bars {
   display: flex;
   flex-direction: column;
