@@ -54,9 +54,11 @@ nav ul li a:hover {
   padding: 5rem 2rem;
   background: 
     linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)),
-    url('https://image.freepik.com/free-vector/abstract-colorful-dotted-technology-background_6166240.jpg')
+    url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cG9ydGZvbGlvJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D')
     center/cover no-repeat;
   color: #f1f5f9;
+  background-size: cover; 
+  background-position: center;
 }
 
 
