@@ -70,24 +70,6 @@ nav {
     font-size: 1.2rem;
   }
 }
-nav .logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-nav .logo span {
-  color: #38bdf8;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-
-nav ul li a:hover {
-  text-decoration: underline;
-}
 
 .hero {
   display: flex;
