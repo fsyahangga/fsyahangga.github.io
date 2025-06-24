@@ -618,8 +618,8 @@ section h2::before {
 }
 
 .exp-logo img {
-  width: 48px;
-  height: 48px;
+  width: 96px;
+  height: 96px;
   object-fit: contain;
   border-radius: 8px;
   background-color: #1e293b;
