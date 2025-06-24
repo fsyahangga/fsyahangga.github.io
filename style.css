@@ -680,3 +680,11 @@ section h2::before {
 }
 
 
+#experience .timeline-item p {
+  text-align: justify;
+}
+
+.project-item p,
+.about-card p{
+  text-align: justify;
+}
