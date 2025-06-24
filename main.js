@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSidebarToggle();
   initSmoothScroll();
   initScrollSpy();
+  initSectionReveal(); // ⬅️ tambahkan ini
 });
 
 // Toggle sidebar (☰)
@@ -72,3 +73,26 @@ function initScrollSpy() {
     });
   });
 }
+
+function initSectionReveal() {
+  const sections = document.querySelectorAll("section");
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("reveal");
+          observer.unobserve(entry.target); // animasi hanya sekali
+        }
+      });
+    },
+    {
+      threshold: 0.15
+    }
+  );
+
+  sections.forEach((section) => {
+    observer.observe(section);
+  });
+}
+
