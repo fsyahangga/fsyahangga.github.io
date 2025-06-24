@@ -23,44 +23,7 @@
 </script>
   
 <body>
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll("section");
-    const menuLinks = document.querySelectorAll(".floating-menu a");
-
-    window.addEventListener("scroll", () => {
-      let currentSection = "";
-      sections.forEach((sec) => {
-        const sectionTop = sec.offsetTop - 150;
-        if (window.scrollY >= sectionTop) {
-          currentSection = sec.getAttribute("id");
-        }
-      });
-
-      menuLinks.forEach((link) => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + currentSection) {
-          link.classList.add("active");
-        }
-      });
-    });
-  });
-    // Smooth Scroll Polyfill via JavaScript (for full control)
-  document.querySelectorAll('.floating-menu a, .sidebar a').forEach(link => {
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('href').substring(1);
-      const targetSection = document.getElementById(targetId);
-      if (targetSection) {
-        window.scrollTo({
-          top: targetSection.offsetTop - 80, // adjust for sticky navbar
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-</script>
-
+  
   <nav>
     <div class="logo">fsyahangga<span>.</span></div>
 <!--     <ul>
@@ -274,5 +237,6 @@
   <footer>
     <p>© 2025 fsyahangga — Built with 💻 and ☕</p>
   </footer>
+  <script src="main.js"></script>
 </body>
 </html>
