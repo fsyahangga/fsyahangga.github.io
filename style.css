@@ -673,7 +673,7 @@ section h2::before {
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 40px;
+  width: 300px;
   height: 2px;
   background-color: #38bdf8;
   border-radius: 2px;
@@ -684,7 +684,8 @@ section h2::before {
   text-align: justify;
 }
 
-.project-item p,
-.about-card p{
+.project-card p,
+.about-card p,
+.exp-details p{
   text-align: justify;
 }
