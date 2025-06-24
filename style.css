@@ -636,7 +636,7 @@ section h2::before {
 .company-logo {
   display: block;
   margin: 0 auto 0.75rem auto;
-  width: 60px;
+  width: 120;
   height: auto;
   max-height: 120px;
   object-fit: contain;
