@@ -78,7 +78,7 @@ section {
   padding: 3rem 2rem;
   max-width: 900px;
   margin: auto;
-  scroll-margin-top: 80px; /* sesuai tinggi nav */
+  scroll-margin-top: 90px; /* sesuai tinggi nav */
 }
 
 h2 {
