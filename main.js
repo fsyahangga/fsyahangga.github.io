@@ -18,9 +18,9 @@ function initSidebarToggle() {
   }
 }
 
-// Smooth scroll for both floating-menu and sidebar
 function initSmoothScroll() {
   const links = document.querySelectorAll(".floating-menu a, .sidebar a");
+  const sidebar = document.getElementById("sidebar");
 
   links.forEach((link) => {
     link.addEventListener("click", (e) => {
@@ -29,14 +29,23 @@ function initSmoothScroll() {
       const targetElement = document.getElementById(targetId);
 
       if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 80, // adjust for navbar height
-          behavior: "smooth"
+        // Scroll halus ke elemen yang dituju
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
         });
+
+        // Tutup sidebar jika di layar kecil
+        if (window.innerWidth <= 768 && sidebar.classList.contains("show")) {
+          setTimeout(() => {
+            sidebar.classList.remove("show");
+          }, 600); // delay agar scroll dulu baru sidebar tertutup
+        }
       }
     });
   });
 }
+
 
 // Highlight active section on scroll (ScrollSpy)
 function initScrollSpy() {
