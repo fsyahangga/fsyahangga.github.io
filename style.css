@@ -345,30 +345,31 @@ h2 {
 }
 #contact {
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 3rem 1rem;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
-  justify-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
   margin-top: 2rem;
 }
 
 .contact-box {
   background-color: #1e293b;
-  padding: 1.2rem;
-  border-radius: 50%;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
   transition: transform 0.3s ease;
-  width: 100%;
-  max-width: 220px;
+  width: 160px;
   text-align: center;
 }
 
 .contact-box:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
 }
 
 .contact-box a {
@@ -381,22 +382,20 @@ h2 {
 }
 
 .icon-circle {
-  background-color: #1d4ed8; /* biru terang, sebelumnya #0f172a */
-  width: 60px;
-  height: 60px;
+  background-color: #1d4ed8;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.5); /* glow biru */
-  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.5);
 }
 
 .icon-circle img {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
 }
-
 
 
 footer {
