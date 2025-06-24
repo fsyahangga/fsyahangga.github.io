@@ -101,7 +101,7 @@ section {
   padding: 3rem 2rem;
   max-width: 900px;
   margin: auto;
-  scroll-margin-top: 90px; /* sesuai tinggi nav */
+  scroll-margin-top: 10px; /* sesuai tinggi nav */
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
