@@ -282,6 +282,58 @@ h2 {
   color: #38bdf8;
   font-size: 0.95rem;
 }
+#contact {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  margin-top: 2rem;
+}
+
+.contact-box {
+  background-color: #1e293b;
+  padding: 1.2rem;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 220px;
+  text-align: center;
+}
+
+.contact-box:hover {
+  transform: translateY(-4px);
+}
+
+.contact-box a {
+  text-decoration: none;
+  color: #38bdf8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.icon-circle {
+  background-color: #0f172a;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.icon-circle img {
+  width: 30px;
+  height: 30px;
+}
 
 
 footer {
