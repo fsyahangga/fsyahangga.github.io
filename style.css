@@ -868,4 +868,24 @@ section h2::before {
 .testimonial-card:hover {
   transform: translateY(-5px);
 }
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 0.5rem;
+}
+
+.carousel-dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.carousel-dots button.active {
+  background: #38bdf8; /* warna aktif, bisa disesuaikan */
+}
 
