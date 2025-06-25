@@ -148,8 +148,17 @@ function initTestimonialSlider() {
   let currentIndex = 0;
 
   function updateCarousel() {
-    const cardWidth = cards[0].offsetWidth + 32; // 32 = gap padding
-    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    const card = cards[0];
+    const cardStyle = window.getComputedStyle(card);
+    const cardWidth = card.offsetWidth;
+    const cardMarginRight = parseFloat(cardStyle.marginRight || 0);
+    const totalWidth = cardWidth + cardMarginRight;
+    track.style.transform = `translateX(-${currentIndex * totalWidth}px)`;
+  }
+
+  function goTo(index) {
+    currentIndex = index % cards.length;
+    updateCarousel();
   }
 
   function goNext() {
@@ -162,18 +171,13 @@ function initTestimonialSlider() {
     updateCarousel();
   }
 
-  nextBtn.addEventListener("click", () => {
-    goNext();
-  });
-
-  prevBtn.addEventListener("click", () => {
-    goPrev();
-  });
-
+  nextBtn.addEventListener("click", goNext);
+  prevBtn.addEventListener("click", goPrev);
   window.addEventListener("resize", updateCarousel);
 
-  // ✅ Auto Slide Tiap 5 Detik
-  setInterval(() => {
-    goNext();
-  }, 5000);
+  // ✅ Auto slide tiap 5 detik
+  setInterval(goNext, 5000);
+
+  // Jalankan pertama kali
+  updateCarousel();
 }
