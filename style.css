@@ -826,3 +826,54 @@ section h2::before {
   border-radius: 1.5rem;
   box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
 }
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url('background.png') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-section .overlay {
+  background-color: rgba(15, 23, 42, 0.8); /* dark overlay */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.hero-content {
+  color: #f1f5f9;
+  max-width: 600px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin: 1rem 0;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-content .cta-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #38bdf8;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.hero-content .cta-button:hover {
+  background-color: #0ea5e9;
+}
+
