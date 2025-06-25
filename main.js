@@ -147,13 +147,18 @@ function initTestimonialSlider() {
 
   let currentIndex = 0;
 
+  function getSlideWidth() {
+    const trackWidth = track.offsetWidth;
+    const visibleCard = cards[0];
+    const style = window.getComputedStyle(track);
+    const gap = parseFloat(style.gap || 0);
+    return visibleCard.offsetWidth + gap;
+  }
+
   function updateCarousel() {
-    const card = cards[0];
-    const cardStyle = window.getComputedStyle(card);
-    const cardWidth = card.offsetWidth;
-    const cardMarginRight = parseFloat(cardStyle.marginRight || 0);
-    const totalWidth = cardWidth + cardMarginRight;
-    track.style.transform = `translateX(-${currentIndex * totalWidth}px)`;
+    const slideWidth = getSlideWidth();
+    const totalTranslate = currentIndex * slideWidth;
+    track.style.transform = `translateX(-${totalTranslate}px)`;
   }
 
   function goTo(index) {
@@ -175,9 +180,8 @@ function initTestimonialSlider() {
   prevBtn.addEventListener("click", goPrev);
   window.addEventListener("resize", updateCarousel);
 
-  // ✅ Auto slide tiap 5 detik
-  setInterval(goNext, 5000);
+  setInterval(goNext, 5000); // ✅ Auto slide tiap 5 detik
 
-  // Jalankan pertama kali
   updateCarousel();
 }
+
