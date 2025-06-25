@@ -140,50 +140,40 @@ function initSectionShow() {
 }
 
 function initTestimonialSlider() {
-  const track = document.querySelector('.testimonial-track');
-  const cards = document.querySelectorAll('.testimonial-card');
-  const prevBtn = document.querySelector('.carousel-btn.prev');
-  const nextBtn = document.querySelector('.carousel-btn.next');
-  const dotsContainer = document.querySelector('.carousel-dots');
+  const track = document.querySelector(".testimonial-track");
+  const cards = document.querySelectorAll(".testimonial-card");
+  const prevBtn = document.querySelector(".carousel-btn.prev");
+  const nextBtn = document.querySelector(".carousel-btn.next");
 
   let currentIndex = 0;
-  const totalSlides = cards.length;
 
-  // Buat bullet berdasarkan jumlah testimonial
-  cards.forEach((_, index) => {
-    const dot = document.createElement('button');
-    if (index === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => {
-      currentIndex = index;
-      updateSlide();
-    });
-    dotsContainer.appendChild(dot);
-  });
-
-  const dots = dotsContainer.querySelectorAll('button');
-
-  function updateSlide() {
-    track.style.transform = `translateX(-${currentIndex * 100}%)`;
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[currentIndex].classList.add('active');
+  function updateCarousel() {
+    const cardWidth = cards[0].offsetWidth + 32; // 32 = gap padding
+    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
   }
 
-  nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    updateSlide();
+  function goNext() {
+    currentIndex = (currentIndex + 1) % cards.length;
+    updateCarousel();
+  }
+
+  function goPrev() {
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+    updateCarousel();
+  }
+
+  nextBtn.addEventListener("click", () => {
+    goNext();
   });
 
-  prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-    updateSlide();
+  prevBtn.addEventListener("click", () => {
+    goPrev();
   });
 
-  // Optional auto slide
-  // setInterval(() => {
-  //   currentIndex = (currentIndex + 1) % totalSlides;
-  //   updateSlide();
-  // }, 6000);
+  window.addEventListener("resize", updateCarousel);
+
+  // ✅ Auto Slide Tiap 5 Detik
+  setInterval(() => {
+    goNext();
+  }, 5000);
 }
-
-
-
