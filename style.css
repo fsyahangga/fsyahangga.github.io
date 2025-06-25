@@ -825,20 +825,13 @@ section h2::before {
   display: flex;
   transition: transform 0.5s ease;
   gap: 2rem;
+  will-change: transform;
 }
 
 .testimonial-card {
   flex: 0 0 100%;
-  margin-right: 0;
   min-width: 100%;
   box-sizing: border-box;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 1rem;
-  color: #e2e8f0;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(6px);
-  text-align: center;
 }
 .testimonial-footer {
   display: flex;
