@@ -8,6 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
   initSectionReveal(); // ⬅️ tambahkan ini
   initProjectReveal();
 });
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  if (window.scrollY > 10) {
+    nav.style.background = 'rgba(30, 41, 59, 0.9)';
+  } else {
+    nav.style.background = 'rgba(30, 41, 59, 0.6)';
+  }
+});
 
 // Toggle sidebar (☰)
 function initSidebarToggle() {
