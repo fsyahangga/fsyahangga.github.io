@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSectionShow();
   initSectionReveal(); // ⬅️ tambahkan ini
   initProjectReveal();
+  initTestimonialSlider();
 });
 window.addEventListener('scroll', () => {
   const nav = document.querySelector('nav');
@@ -137,4 +138,34 @@ function initSectionShow() {
     observer.observe(section);
   });
 }
+
+function initTestimonialSlider() {
+  const track = document.querySelector('.testimonial-track');
+  const cards = document.querySelectorAll('.testimonial-card');
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+  const nextBtn = document.querySelector('.carousel-btn.next');
+
+  let currentIndex = 0;
+  const totalSlides = cards.length;
+
+  function updateSlide() {
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateSlide();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateSlide();
+  });
+
+  // Optional: Auto-slide every 6 seconds
+  // setInterval(() => {
+  //   nextBtn.click();
+  // }, 6000);
+}
+
 
