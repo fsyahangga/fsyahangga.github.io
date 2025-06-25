@@ -81,7 +81,8 @@ nav {
   padding: 5rem 2rem;
   background: 
     linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)),
-    url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cG9ydGZvbGlvJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D')
+    url('background.png')
+/*     url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cG9ydGZvbGlvJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D') */
     center/cover no-repeat;
   color: #f1f5f9;
   background-size: cover; 
@@ -770,110 +771,5 @@ section h2::before {
 .btn-contact img {
   filter: brightness(0) invert(1); /* memastikan ikon berwarna putih */
 }
-.home-section {
-  padding: 4rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background: #0f172a;
-}
 
-.home-container {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.home-content {
-  max-width: 600px;
-  color: #fff;
-  text-align: left;
-}
-
-.home-content h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.home-content p {
-  font-size: 1.25rem;
-  margin-bottom: 1.5rem;
-}
-
-.cta-button {
-  padding: 0.75rem 1.5rem;
-  background-color: #38bdf8;
-  color: #fff;
-  border: none;
-  border-radius: 999px;
-  font-size: 1rem;
-  text-decoration: none;
-  transition: background-color 0.3s;
-}
-
-.cta-button:hover {
-  background-color: #0ea5e9;
-}
-
-.home-image img {
-  max-width: 400px;
-  width: 100%;
-  height: auto;
-  border-radius: 1.5rem;
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
-}
-.hero-section {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background: url('background.png') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.hero-section .overlay {
-  background-color: rgba(15, 23, 42, 0.8); /* dark overlay */
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-}
-
-.hero-content {
-  color: #f1f5f9;
-  max-width: 600px;
-}
-
-.hero-content h1 {
-  font-size: 3rem;
-  margin: 1rem 0;
-}
-
-.hero-content p {
-  font-size: 1.25rem;
-  margin-bottom: 1.5rem;
-}
-
-.hero-content .cta-button {
-  padding: 0.75rem 1.5rem;
-  background-color: #38bdf8;
-  color: #fff;
-  border: none;
-  border-radius: 999px;
-  font-size: 1rem;
-  text-decoration: none;
-  transition: background-color 0.3s;
-}
-
-.hero-content .cta-button:hover {
-  background-color: #0ea5e9;
-}
 
