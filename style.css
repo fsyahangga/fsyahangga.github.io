@@ -893,4 +893,13 @@ section h2::before {
 .carousel-dots button.active {
   background: #38bdf8; /* warna aktif, bisa disesuaikan */
 }
+.detail-block h4 {
+  margin-bottom: 0.25rem;
+  color: #38bdf8; /* warna biru terang */
+}
+
+.detail-icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
 
