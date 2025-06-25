@@ -828,6 +828,8 @@ section h2::before {
 }
 
 .testimonial-card {
+  flex: 0 0 100%;
+  margin-right: 0;
   min-width: 100%;
   box-sizing: border-box;
   padding: 1.5rem;
