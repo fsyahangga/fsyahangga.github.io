@@ -144,12 +144,28 @@ function initTestimonialSlider() {
   const cards = document.querySelectorAll('.testimonial-card');
   const prevBtn = document.querySelector('.carousel-btn.prev');
   const nextBtn = document.querySelector('.carousel-btn.next');
+  const dotsContainer = document.querySelector('.carousel-dots');
 
   let currentIndex = 0;
   const totalSlides = cards.length;
 
+  // Buat bullet berdasarkan jumlah testimonial
+  cards.forEach((_, index) => {
+    const dot = document.createElement('button');
+    if (index === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => {
+      currentIndex = index;
+      updateSlide();
+    });
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = dotsContainer.querySelectorAll('button');
+
   function updateSlide() {
     track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[currentIndex].classList.add('active');
   }
 
   nextBtn.addEventListener('click', () => {
@@ -162,10 +178,12 @@ function initTestimonialSlider() {
     updateSlide();
   });
 
-  // Optional: Auto-slide every 6 seconds
+  // Optional auto slide
   // setInterval(() => {
-  //   nextBtn.click();
+  //   currentIndex = (currentIndex + 1) % totalSlides;
+  //   updateSlide();
   // }, 6000);
 }
+
 
 
