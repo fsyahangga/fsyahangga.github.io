@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSmoothScroll();
   initScrollSpy();
   initSectionShow();
+  initAbout();
   initSectionReveal(); // ⬅️ tambahkan ini
   initProjectReveal();
   initTestimonialSlider();
@@ -183,5 +184,18 @@ function initTestimonialSlider() {
   setInterval(goNext, 5000); // ✅ Auto slide tiap 5 detik
 
   updateCarousel();
+}
+function initAbout(){
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.about-card').forEach(card => {
+    observer.observe(card);
+  });
 }
 
