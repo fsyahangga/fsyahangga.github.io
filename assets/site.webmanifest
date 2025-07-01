@@ -1,0 +1,22 @@
+{
+    "name": "Angga Firmansyah | ERP Technical Consultant",
+    "short_name": "Angga ERP",
+    "description": "Personal portfolio of Angga Firmansyah, an ERP Technical Consultant with expertise in Business Central, Dynamics AX, Odoo, and Epicor.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#38bdf8",
+    "icons": [
+      {
+        "src": "assets/favicon-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "assets/favicon-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
+  
