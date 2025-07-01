@@ -93,6 +93,7 @@ nav {
   color: #f1f5f9;
   background-size: cover; 
   background-position: center;
+  position: relative;
 }
 .hero-content {
   display: flex;
@@ -1030,4 +1031,10 @@ section h2::before {
   opacity: 1;
   transform: translateY(0);
 }
-
+.hire-me-button {
+  position: absolute;
+  top: 52%; /* Sesuaikan posisi vertikal */
+  right: 20%; /* Geser ke kiri untuk dekat ke dada avatar */
+  transform: translateY(-50%);
+  z-index: 10;
+}
