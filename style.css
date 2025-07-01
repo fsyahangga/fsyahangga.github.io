@@ -1034,7 +1034,7 @@ section h2::before {
 .hire-me-button {
   position: absolute;
   top: 75%; /* Sesuaikan posisi vertikal */
-  right: 20%; /* Geser ke kiri untuk dekat ke dada avatar */
+  right: 25%; /* Geser ke kiri untuk dekat ke dada avatar */
   transform: translateY(-50%);
   z-index: 10;
 }
