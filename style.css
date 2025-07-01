@@ -683,13 +683,13 @@ section h2::before {
 .project-card h3 {
   margin-bottom: 0.75rem;
   color: #38bdf8;
-  font-size: 1.2rem;
+  font-size: 0.5 rem;
   text-align: center;
 }
-.project-card h4 {
+.project-card h5 {
   margin-bottom: 0.2rem;
   color: #e2e8f0;
-  font-size: 1rem;
+  font-size: 1.1rem;
   text-align: center;
 }
 
