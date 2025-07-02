@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollSpy();
   initSectionShow();
   initAbout();
+  initAboutReveal();
   initExperiences();
   initSectionReveal(); // ⬅️ tambahkan ini
   initProjectReveal();
@@ -212,4 +213,15 @@ function initExperiences(){
   document.querySelectorAll('.experience-item').forEach(item => {
     observer.observe(item);
   });
+}
+function initAboutReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-visible');
+      }
+    });
+  });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 }
