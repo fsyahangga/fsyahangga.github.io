@@ -59,7 +59,7 @@ This site is built using:
 If you'd like to collaborate, consult, or just connect — I'm available!
 
 - 🌐 [LinkedIn](https://www.linkedin.com/in/fsyahangga)
-- 📧 Email: fsyahangga@gmail.com
+- 📧 Email: firmansyah.angga@gmail.com
 - 📞 WhatsApp: [Click to Chat](https://wa.me/628123456789)
 
 ---
