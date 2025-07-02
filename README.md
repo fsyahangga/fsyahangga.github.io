@@ -50,7 +50,7 @@ This site is built using:
 
 ## 📷 Preview
 
-![Portfolio Preview](https://raw.githubusercontent.com/fsyahangga/fsyahangga.github.io/main/background.png)
+![Portfolio Preview](https://raw.githubusercontent.com/fsyahangga/fsyahangga.github.io/main/preview.png)
 
 ---
 
