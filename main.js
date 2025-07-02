@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollSpy();
   initSectionShow();
   initAbout();
+  initExperiences();
   initSectionReveal(); // ⬅️ tambahkan ini
   initProjectReveal();
   initTestimonialSlider();
@@ -198,4 +199,17 @@ function initAbout(){
     observer.observe(card);
   });
 }
+function initExperiences(){
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // hanya sekali animasi
+      }
+    });
+  }, { threshold: 0.15 });
 
+  document.querySelectorAll('.experience-item').forEach(item => {
+    observer.observe(item);
+  });
+}
