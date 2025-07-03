@@ -1228,20 +1228,20 @@ section h2::before {
 }
 .services {
   padding: 80px 20px;
-  background-color: #f8f9fc;
+  background-color: #0f172a;
   text-align: center;
 }
 
 .services .section-title {
   font-size: 2.2rem;
   font-weight: 700;
-  color: #222;
+  color: #38bdf8;
   margin-bottom: 10px;
 }
 
 .services .section-subtitle {
   font-size: 1rem;
-  color: #555;
+  color: #94a3b8;
   margin-bottom: 40px;
   max-width: 750px;
   margin-left: auto;
@@ -1257,18 +1257,28 @@ section h2::before {
 }
 
 .service-card {
-  background: #fff;
-  padding: 30px 20px;
+  background-color: #1e293b;
+  color: #f1f5f9;
+  padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  cursor: default;
 }
 
 .service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px) scale(1.02);
+  background-color: #0f172a;
+  box-shadow: 0 12px 24px rgba(56, 189, 248, 0.25);
+}
+.service-card:hover h3 {
+  color: #38bdf8;
 }
 
+.service-card:hover .service-icon {
+  transform: rotate(5deg) scale(1.15);
+  transition: transform 0.3s ease;
+}
 .service-icon {
   font-size: 2rem;
   margin-bottom: 12px;
@@ -1278,28 +1288,13 @@ section h2::before {
 .service-card h3 {
   font-size: 1.2rem;
   margin-bottom: 10px;
-  color: #1e1e1e;
+  color: #7dd3fc;
 }
 
 .service-card p {
   font-size: 0.95rem;
-  color: #666;
+  color: #cbd5e1;
   line-height: 1.5;
-}
-
-.cta-button {
-  display: inline-block;
-  padding: 12px 30px;
-  background-color: #2e86de;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 8px;
-  transition: background 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: #1b6ec2;
 }
 
 
