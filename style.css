@@ -434,12 +434,18 @@ h2 {
 
 .skill-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .skill-card img {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 0.5rem;
+  width: 60px;
+  height: 60px;
+  transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+.skill-card:hover img {
+  transform: scale(1.2) rotate(5deg);
+  filter: brightness(1.1);
 }
 
 .skill-card span {
