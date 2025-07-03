@@ -793,6 +793,13 @@ section h2::before {
   transform: scale(0.8);
   transition: all 0.8s ease-in-out;
 }
+.exp-logo img {
+  transition: transform 0.6s ease;
+}
+
+.exp-logo:hover img {
+  transform: rotate(360deg) scale(1.1);
+}
 
 .experience-item.visible .exp-logo {
   opacity: 1;
@@ -1136,3 +1143,28 @@ section h2::before {
 .experience-item:nth-child(4) {
   transition-delay: 0.4s;
 }
+.experience-item.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.experience-item.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.exp-logo.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.exp-logo.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.timeline-vertical .experience-item:nth-child(1) { transition-delay: 0.1s; }
+.timeline-vertical .experience-item:nth-child(2) { transition-delay: 0.2s; }
+.timeline-vertical .experience-item:nth-child(3) { transition-delay: 0.3s; }
+.timeline-vertical .experience-item:nth-child(4) { transition-delay: 0.4s; }
