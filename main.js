@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSectionShow();
   initAbout();
   initAboutReveal();
+  initServices();
   initExperiences();
   initSectionReveal(); // ⬅️ tambahkan ini
   initProjectReveal();
@@ -224,4 +225,20 @@ function initAboutReveal() {
   });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+function initServices(){
+  const fadeEls = document.querySelectorAll('.fade-in');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  fadeEls.forEach(el => observer.observe(el));
 }
