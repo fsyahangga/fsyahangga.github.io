@@ -1048,6 +1048,7 @@ section h2::before {
   color: #0f172a;
   font-weight: 600;
   margin: 0;
+  text-align: center;
 }
 
 .quote {
@@ -1055,12 +1056,14 @@ section h2::before {
   font-style: italic;
   color: #334155;
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .about-description {
   font-size: 1rem;
   line-height: 1.7;
   color: #1e293b;
+  text-align: justify;
 }
 
 
