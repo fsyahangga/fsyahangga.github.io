@@ -1181,27 +1181,29 @@ section h2::before {
 .timeline-vertical .experience-item:nth-child(4) { transition-delay: 0.4s; }
 .company-logo-slider {
   overflow: hidden;
-  padding: 1rem 0;
-  background: rgba(255, 255, 255, 0.03);
+  padding: 2rem 0;
+  background-color: #f9f9f9;
   border-radius: 1rem;
   margin-top: 2rem;
 }
 
 .logo-track {
   display: flex;
-  gap: 2rem;
-  animation: scrollLogos 50s linear infinite;
+  gap: 3rem;
+  animation: scrollLogos 60s linear infinite;
   width: max-content;
+  align-items: center;
 }
 
 .logo-track img {
-  height: 100px;
+  height: 40px;
   flex-shrink: 0;
-  opacity: 0.75;
-  transition: opacity 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.8;
 }
 
 .logo-track img:hover {
+  transform: scale(1.1);
   opacity: 1;
 }
 
@@ -1214,11 +1216,15 @@ section h2::before {
   }
 }
 
-/* Responsive fix: wrap and center if screen too small */
+/* Responsive fallback */
 @media (max-width: 768px) {
   .logo-track {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
+    gap: 2rem;
+  }
+
+  .logo-track img {
+    height: 32px;
   }
 }
+
 
