@@ -1190,7 +1190,7 @@ section h2::before {
 .logo-track {
   display: flex;
   gap: 2rem;
-  animation: scrollLogos 30s linear infinite;
+  animation: scrollLogos 50s linear infinite;
   width: max-content;
 }
 
