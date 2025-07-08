@@ -1195,7 +1195,7 @@ section h2::before {
 }
 .qr-static-button {
   position: absolute;
-  top: 30%;
+  top: 40%;
   right: 10%;
   transform: translateY(-50%);
   z-index: 10;
