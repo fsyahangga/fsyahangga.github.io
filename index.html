@@ -86,15 +86,7 @@
         <span><small>ERP Technical Consultant | ERP Transformation Digital</small></span> 
         <small><em>"Longlife Learner; a human being who never gets clever."</em></small>
       </h1>
-      </br>
-      <div class="qr-landing-wrapper">
-        <img
-          src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://wa.me/6285707726255?text=Hi%20Angga%2C%20I%E2%80%99m%20interested%20in%20your%20ERP%20services."
-          alt="WhatsApp QR Code"
-          class="qr-landing"
-        />
-        <p>Scan Me</p>
-      </div>
+      <button class="qr-popup-button">🔍 View Larger QR</button>
       
       <div class="hire-me-button">
         <div class="cta-buttons">
@@ -786,5 +778,17 @@
     <p>© 2025 fsyahangga — Built with 💻 and ☕</p>
   </footer>
   <script src="main.js"></script>
+  <div class="qr-popup-overlay" id="qrPopup">
+    <div class="qr-popup-content">
+      <span class="qr-popup-close" onclick="document.getElementById('qrPopup').style.display='none'">&times;</span>
+      <img
+        src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://wa.me/6285707726255?text=Hi%20Angga%2C%20I%E2%80%99m%20interested%20in%20your%20ERP%20services."
+        alt="WhatsApp QR Code Popup"
+        class="qr-popup-img"
+      />
+      <p>Scan Me</p>
+    </div>
+  </div>
+  
 </body>
 </html>

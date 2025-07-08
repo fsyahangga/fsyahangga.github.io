@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSectionReveal(); // ⬅️ tambahkan ini
   initProjectReveal();
   initTestimonialSlider();
+  getPopUpQR();
 });
 window.addEventListener('scroll', () => {
   const nav = document.querySelector('nav');
@@ -241,4 +242,9 @@ function initServices(){
   });
 
   fadeEls.forEach(el => observer.observe(el));
+}
+function getPopUpQR(){
+  document.querySelector('.qr-popup-button').addEventListener('click', function () {
+    document.getElementById('qrPopup').style.display = 'flex';
+  });
 }
