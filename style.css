@@ -31,18 +31,18 @@ a {
 nav {
   display: flex;
   align-items: center;
-  background: #1e293b;
   padding: 0.2rem 0.5rem;
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(30, 41, 59, 0.6); /* warna gelap semi-transparan */
-  backdrop-filter: blur(10px);      /* efek blur transparansi */
-  -webkit-backdrop-filter: blur(10px); /* untuk Safari */
-  color: white; /* pastikan teks tetap kontras */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* bayangan halus */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* garis bawah samar */
+  background: rgba(30, 41, 59, 0.4); /* lebih transparan */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* glow shadow */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .logo-container {
   display: flex;
   align-items: center;
@@ -53,17 +53,39 @@ nav {
   width: 36px;
   height: 36px;
   border-radius: 50%;
+  filter: drop-shadow(0 0 6px #38bdf8); /* glow logo */
+  transition: transform 0.3s ease;
+}
+
+.logo-icon:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 10px #38bdf8); /* glow lebih terang saat hover */
 }
 
 .logo-text {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #f1f5f9;
   white-space: nowrap;
+  color: transparent;
+  position: relative;
+}
+
+.logo-text::before {
+  content: 'fsyahangga.';
+  color: rgba(241, 245, 249, 0.5); /* teks semi transparan */
+  font-weight: 700;
+  text-shadow: 0 0 6px #7dd3fc; /* efek glow */
+  margin: 0 0.2rem;
 }
 
 .logo-text span {
   color: #38bdf8;
+  text-shadow: 0 0 5px #38bdf8; /* glow untuk < dan > */
+}
+
+.logo-text:hover::before {
+  color: rgba(241, 245, 249, 0.8);
+  text-shadow: 0 0 10px #7dd3fc;
 }
 
 @media (max-width: 600px) {
