@@ -1184,6 +1184,16 @@ section h2::before {
   justify-content: center;
   margin-top: 1.5rem;
 }
+.qr-static-button {
+  position: absolute;
+  top: 65%; /* Sesuaikan posisi vertikal */
+  right: 25%; /* Geser ke kiri untuk dekat ke dada avatar */
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
 .experience-item:nth-child(1) {
   transition-delay: 0.1s;
 }
