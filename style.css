@@ -642,7 +642,7 @@ footer {
   transform: scale(1.2);
 }
 section h2 {
-  display: flex;
+  display: inline-block;
   align-items: center;
   gap: 0.5rem;
   font-size: 2rem;
