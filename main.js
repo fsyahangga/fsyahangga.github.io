@@ -160,17 +160,17 @@ function initTestimonialSlider() {
     const gap = parseFloat(style.gap || 0);
     return visibleCard.offsetWidth + gap;
   }
-
+  function updateDots() {
+    const allDots = document.querySelectorAll('.carousel-dot');
+    allDots.forEach(dot => dot.classList.remove('active'));
+    allDots[currentIndex].classList.add('active');
+  }
   function updateCarousel() {
     const slideWidth = getSlideWidth();
     const totalTranslate = currentIndex * slideWidth;
     track.style.transform = `translateX(-${totalTranslate}px)`;
 
-    // update active dot
-    const dots = dotsContainer.querySelectorAll("button");
-    dots.forEach((dot, i) => {
-      dot.classList.toggle("active", i === currentIndex);
-    });
+    updateDots();
   }
 
   function goTo(index) {
@@ -190,14 +190,21 @@ function initTestimonialSlider() {
   prevBtn.addEventListener("click", goPrev);
   window.addEventListener("resize", updateCarousel);
 
-  // ⬇️ Buat dots otomatis
+  // Buat dot untuk setiap testimonial card
   cards.forEach((_, i) => {
-    const dot = document.createElement("button");
-    if (i === 0) dot.classList.add("active");
-    dot.addEventListener("click", () => goTo(i));
+    const dot = document.createElement('button');
+    dot.classList.add('carousel-dot');
+    if (i === 0) dot.classList.add('active'); // dot pertama aktif
+    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+    dot.addEventListener('click', () => {
+      currentIndex  = i;
+      updateCarousel();
+      updateDots();
+    });
     dotsContainer.appendChild(dot);
   });
 
+  
   // Auto slide
   setInterval(goNext, 5000);
 
