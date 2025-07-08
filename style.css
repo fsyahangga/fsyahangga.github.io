@@ -1361,5 +1361,12 @@ section h2::before {
 .section-title:hover::after {
   width: 40%;
 }
-
+/* Untuk judul perusahaan (h3) di experience item */
+.experience-item h3 {
+  text-align: left !important;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
 
