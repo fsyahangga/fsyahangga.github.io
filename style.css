@@ -402,7 +402,7 @@ h2 {
 }
 
 .skill {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
 }
 
@@ -797,7 +797,7 @@ section h2::before {
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
 }
 .experience-item {
-  display: flex;
+  display: inline-flex;
   gap: 1.5rem;
   align-items: flex-start;
   position: relative;
@@ -1126,6 +1126,11 @@ section h2::before {
 .about-card ul {
   list-style: none;
   padding-left: 0;
+}
+
+.about-card ul li {
+  text-align: justify; /* <- ini yang dibutuhkan */
+  margin-bottom: 0.5rem; /* optional: biar tidak terlalu dempet */
 }
 
 .about-card ul li::before {
