@@ -481,7 +481,7 @@ h2 {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   background-color: #38bdf8;
   color: #1e293b;
-  box-shadow: 0 0 10px #38bdf8;
+  /* box-shadow: 0 0 10px #38bdf8; */
 }
 
 .skill-card img {
