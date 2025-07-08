@@ -1133,6 +1133,7 @@ section h2::before {
   content: '✔️ ';
   margin-right: 0.5rem;
   color: #38bdf8;
+  text-align: justify;
 }
 .card-icon {
   text-align: center;
