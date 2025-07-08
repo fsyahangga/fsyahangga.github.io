@@ -300,20 +300,38 @@ h2 {
 }
 .about-card {
   background-color: #1e293b;
-  border-radius: 12px;
-  padding: 1.2rem;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
-  transition: transform 0.3s ease;
+  border: 1px solid rgba(56, 189, 248, 0.2); /* border soft glow */
+  border-radius: 1rem;
+  padding: 1.5rem;
+  color: #f1f5f9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .about-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.4); /* blue glow */
+  border: 1px solid rgba(56, 189, 248, 0.6);
 }
 
 .about-card h3 {
-  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  font-size: 1.3rem;
   color: #38bdf8;
-  text-align: center;
+}
+
+.about-card ul li {
+  text-align: justify;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.about-card ul li::before {
+  content: '✔️ ';
+  margin-right: 0.5rem;
+  color: #38bdf8;
 }
 .about-card h4 {
   margin-bottom: 0.2rem;
@@ -1123,22 +1141,7 @@ section h2::before {
 
 
 
-.about-card ul {
-  list-style: none;
-  padding-left: 0;
-}
 
-.about-card ul li {
-  text-align: justify; /* <- ini yang dibutuhkan */
-  margin-bottom: 0.5rem; /* optional: biar tidak terlalu dempet */
-}
-
-.about-card ul li::before {
-  content: '✔️ ';
-  margin-right: 0.5rem;
-  color: #38bdf8;
-  text-align: justify;
-}
 .card-icon {
   text-align: center;
   margin-bottom: 1rem;
