@@ -1324,32 +1324,42 @@ section h2::before {
   transform: translateY(0);
 }
 .section-title {
-  font-size: 2.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #38bdf8;
-  margin-bottom: 1rem;
+  border-bottom: 2px solid #334155;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
-  display: inline-block;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
+/* Untuk efek garis bawah animasi saat hover */
 .section-title::after {
   content: "";
   display: block;
   width: 0%;
   height: 3px;
   background-color: #38bdf8;
-  margin: 0 auto;
+  margin: 6px auto 0 auto;
   transition: width 0.4s ease;
 }
 
+/* Hover animasi */
 .section-title:hover {
-  color: #7dd3fc; /* slightly brighter on hover */
-  transform: translateY(-2px) scale(1.02);
+  color: #7dd3fc;
+  transform: translateY(-2px);
 }
 
 .section-title:hover::after {
-  width: 40%; /* underline animation */
+  width: 40%;
 }
+
 
