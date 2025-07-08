@@ -1697,7 +1697,7 @@ section h2::before {
   }
 }
 
-.company-logo-slider  img {
+.company-logo-slider img {
   border: 2px solid #00f0ff;
   border-radius: 8px;
   animation: neonPulse 3s ease-in-out infinite;
@@ -1705,7 +1705,7 @@ section h2::before {
 }
 
 /* Opsional: efek membesar saat hover */
-.company-logo-slider .logo-track img:hover {
+.company-logo-slider img:hover {
   transform: scale(1.05);
 }
 
