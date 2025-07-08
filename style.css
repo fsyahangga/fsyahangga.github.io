@@ -1162,6 +1162,17 @@ section h2::before {
   opacity: 1;
   transform: translateY(0);
 }
+/* BOUNCE ANIMATION ICON */
+.bounce-icon {
+  display: inline-block;
+  animation: bounce 1s infinite alternate;
+  transition: transform 0.3s ease;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-5px); }
+}
 .hire-me-button {
   position: absolute;
   top: 75%; /* Sesuaikan posisi vertikal */
@@ -1400,3 +1411,44 @@ section h2::before {
   font-weight: 600;
 }
 
+.qr-code-box {
+  margin-top: 2rem;
+  text-align: center;
+  background: rgba(30, 41, 59, 0.5);
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.qr-code-box h3 {
+  color: #38bdf8;
+  margin-bottom: 0.5rem;
+}
+
+.qr-code-box img {
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.qr-code-box img:hover {
+  transform: scale(1.05);
+}
+
+/* Optional animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
