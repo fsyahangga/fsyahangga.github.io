@@ -479,6 +479,9 @@ h2 {
 .skill-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  background-color: #38bdf8;
+  color: #eceef4;
+  box-shadow: 0 0 10px #38bdf8;
 }
 
 .skill-card img {
