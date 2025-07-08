@@ -14,8 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initTestimonialSlider();
   getPopUpQR();
 });
-// Panggil fungsi setelah DOM siap
-document.addEventListener("DOMContentLoaded", initTestimonialSlider);
+
 window.addEventListener('scroll', () => {
   const nav = document.querySelector('nav');
   if (window.scrollY > 10) {
