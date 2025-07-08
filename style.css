@@ -1205,6 +1205,7 @@ section h2::before {
 .logo-track img:hover {
   transform: scale(1.1);
   opacity: 1;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
 @keyframes scrollLogos {
