@@ -1186,14 +1186,57 @@ section h2::before {
 }
 .qr-static-button {
   position: absolute;
-  top: 65%; /* Sesuaikan posisi vertikal */
-  right: 25%; /* Geser ke kiri untuk dekat ke dada avatar */
+  top: 65%;
+  right: 25%;
   transform: translateY(-50%);
   z-index: 10;
   display: flex;
-  justify-content: center;
-  margin-top: 1.5rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  
+  /* 🔥 Animasi slide-up */
+  opacity: 0;
+  animation: slideUp 0.8s ease-out 0.3s forwards;
 }
+
+/* 🔽 Keyframes animasi */
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-50%);
+    opacity: 1;
+  }
+}
+
+
+.qr-static-button img.qr-landing {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+}
+
+.qr-popup-button {
+  background-color: #1e293b; /* Gelap */
+  color: #ffffff;            /* Teks terang */
+  border: 1px solid #38bdf8;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.qr-popup-button:hover {
+  background-color: #38bdf8;
+  color: #0f172a;
+  box-shadow: 0 0 10px #38bdf8;
+}
+
 .experience-item:nth-child(1) {
   transition-delay: 0.1s;
 }
