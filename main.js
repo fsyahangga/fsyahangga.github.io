@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initTestimonialSlider();
   getPopUpQR();
 });
+// Panggil fungsi setelah DOM siap
+document.addEventListener("DOMContentLoaded", initTestimonialSlider);
 window.addEventListener('scroll', () => {
   const nav = document.querySelector('nav');
   if (window.scrollY > 10) {
@@ -149,11 +151,11 @@ function initTestimonialSlider() {
   const cards = document.querySelectorAll(".testimonial-card");
   const prevBtn = document.querySelector(".carousel-btn.prev");
   const nextBtn = document.querySelector(".carousel-btn.next");
+  const dotsContainer = document.querySelector(".carousel-dots");
 
   let currentIndex = 0;
 
   function getSlideWidth() {
-    const trackWidth = track.offsetWidth;
     const visibleCard = cards[0];
     const style = window.getComputedStyle(track);
     const gap = parseFloat(style.gap || 0);
@@ -164,31 +166,47 @@ function initTestimonialSlider() {
     const slideWidth = getSlideWidth();
     const totalTranslate = currentIndex * slideWidth;
     track.style.transform = `translateX(-${totalTranslate}px)`;
+
+    // update active dot
+    const dots = dotsContainer.querySelectorAll("button");
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === currentIndex);
+    });
   }
 
   function goTo(index) {
-    currentIndex = index % cards.length;
+    currentIndex = (index + cards.length) % cards.length;
     updateCarousel();
   }
 
   function goNext() {
-    currentIndex = (currentIndex + 1) % cards.length;
-    updateCarousel();
+    goTo(currentIndex + 1);
   }
 
   function goPrev() {
-    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-    updateCarousel();
+    goTo(currentIndex - 1);
   }
 
   nextBtn.addEventListener("click", goNext);
   prevBtn.addEventListener("click", goPrev);
   window.addEventListener("resize", updateCarousel);
 
-  setInterval(goNext, 5000); // ✅ Auto slide tiap 5 detik
+  // ⬇️ Buat dots otomatis
+  cards.forEach((_, i) => {
+    const dot = document.createElement("button");
+    if (i === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  // Auto slide
+  setInterval(goNext, 5000);
 
   updateCarousel();
 }
+
+
+
 function initAbout(){
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
