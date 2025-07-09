@@ -1850,7 +1850,7 @@ section h2::before {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin: 3rem auto;
+  margin: 2rem auto;
   width: 80%;
   max-width: 800px; /* optional: batasi lebar maksimal */
 }
