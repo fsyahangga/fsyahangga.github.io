@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSectionReveal(); // ⬅️ tambahkan ini
   initProjectReveal();
   initTestimonialSlider();
+  initDividerReveal(); 
   getPopUpQR();
 });
 
@@ -267,8 +268,26 @@ function initServices(){
 
   fadeEls.forEach(el => observer.observe(el));
 }
+
 function getPopUpQR(){
   document.querySelector('.qr-popup-button').addEventListener('click', function () {
     document.getElementById('qrPopup').style.display = 'flex';
   });
+}
+
+function initDividerReveal() {
+  const dividers = document.querySelectorAll(".section-divider-wrapper");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target); // hanya animasi sekali
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  dividers.forEach(divider => observer.observe(divider));
 }

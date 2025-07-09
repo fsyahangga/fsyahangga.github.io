@@ -1852,9 +1852,14 @@ section h2::before {
   margin: 3rem auto;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeSlideUp 1s ease forwards;
-  animation-delay: 0.3s;
+  transition: all 0.8s ease;
 }
+
+.section-divider-wrapper.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 .section-divider-line {
   flex: 1;
@@ -1866,16 +1871,24 @@ section h2::before {
 
 .section-divider-icon {
   margin: 0 1rem;
-  font-size: 1.5rem;
-  color: #00ffe0;
-  text-shadow: 0 0 5px #00ffe0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Optional: intersection-triggered animation (if needed) */
+.section-divider-icon svg {
+  width: 28px;
+  height: 28px;
+  fill: #00ffe0;
+  filter: drop-shadow(0 0 4px #00ffe0);
+}
+
+/* Animation */
 @keyframes fadeSlideUp {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 
