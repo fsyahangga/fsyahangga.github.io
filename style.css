@@ -1845,3 +1845,37 @@ section h2::before {
 .company-logo-slider .logo-track img:nth-child(33) { animation-delay: 9.6s; }
 
 
+.section-divider-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem auto;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideUp 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.section-divider-line {
+  flex: 1;
+  height: 4px;
+  background: linear-gradient(to right, #00ffe0, #0fffc1, #00ffe0);
+  border-radius: 6px;
+  box-shadow: 0 0 12px rgba(0, 255, 224, 0.4);
+}
+
+.section-divider-icon {
+  margin: 0 1rem;
+  font-size: 1.5rem;
+  color: #00ffe0;
+  text-shadow: 0 0 5px #00ffe0;
+}
+
+/* Optional: intersection-triggered animation (if needed) */
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
