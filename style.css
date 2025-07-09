@@ -1850,8 +1850,9 @@ section h2::before {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin: 3rem 0;
-  width: 100%;
+  margin: 3rem auto;
+  width: 80%;
+  max-width: 800px; /* optional: batasi lebar maksimal */
 }
 
 .section-divider-line {
@@ -1860,9 +1861,9 @@ section h2::before {
   background: linear-gradient(to right, #00ffe0, #0070f3);
   opacity: 0.7;
   border-radius: 10px;
-  width: 40%;
 }
 
+/* Ikon SVG */
 .section-divider-icon svg {
   width: 36px;
   height: 36px;
@@ -1871,7 +1872,13 @@ section h2::before {
   transition: filter 0.3s ease, transform 0.3s ease;
 }
 
+/* Hover effect: neon glow */
+.section-divider-icon svg:hover {
+  filter: drop-shadow(0 0 6px #00ffe0) drop-shadow(0 0 10px #00ffe0);
+  transform: scale(1.1);
+}
 
+/* Infinite rotation animation */
 @keyframes rotateGearInfinite {
   0% {
     transform: rotate(0deg);
