@@ -474,7 +474,7 @@ h2 {
 }
 
 /* Front & back face of the card */
-.card-front{
+.card-front, .card-back{
   position: absolute;
   width: 100%;
   height: 100%;
@@ -511,6 +511,7 @@ h2 {
   font-size: 0.95rem;
   color: #fff;
   padding: 1rem;
+  z-index: 1;
 }
 
 /* Responsive text and sizing */
