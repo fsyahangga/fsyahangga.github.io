@@ -447,34 +447,91 @@ h2 {
 }
 .skill-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 kolom tetap */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-@media (max-width: 900px) {
-  .skill-cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .skill-cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-.skill-card {
-  background-color: #1e293b;
-  border-radius: 12px;
   padding: 1rem;
+  justify-items: center;
+}
+
+/* Flip card wrapper */
+.skill-card {
+  width: 100%;
+  perspective: 1000px;
+}
+
+/* Inner card with flipping logic */
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Trigger flip on hover */
+.skill-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front & back face of the card */
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  backface-visibility: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  transition: transform 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  padding: 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
 }
+
+/* Front face */
+.card-front img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+.card-front span {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Back face (flipped side) */
+.card-back {
+  transform: rotateY(180deg);
+  font-size: 0.95rem;
+  color: #fff;
+  padding: 1rem;
+}
+
+/* Responsive text and sizing */
+@media screen and (max-width: 480px) {
+  .card-inner {
+    height: 220px;
+  }
+  .card-front img {
+    width: 48px;
+    height: 48px;
+  }
+  .card-front span {
+    font-size: 0.9rem;
+  }
+  .card-back {
+    font-size: 0.85rem;
+  }
+}
+
+
 
 .skill-card:hover {
   transform: translateY(-5px);
