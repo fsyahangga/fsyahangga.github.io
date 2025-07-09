@@ -306,6 +306,7 @@ function observeGearIcon() {
   }, { threshold: 0.2 });
 
   gears.forEach(icon => {
+    icon.style.animation = 'rotateGearInfinite 4s linear infinite';
     icon.style.animationPlayState = 'paused';
     observer.observe(icon);
   });

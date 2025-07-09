@@ -1851,6 +1851,7 @@ section h2::before {
   justify-content: center;
   gap: 1rem;
   margin: 3rem 0;
+  width: 80%;
 }
 
 .section-divider-line {
@@ -1858,13 +1859,7 @@ section h2::before {
   height: 2px;
   background: linear-gradient(to right, #00ffe0, #0070f3);
   opacity: 0.7;
-}
-
-.section-divider-icon svg {
-  width: 36px;
-  height: 36px;
-  fill: #00ffe0;
-  transition: transform 0.6s ease-out;
+  border-radius: 10px;
 }
 
 .section-divider-icon svg {
@@ -1872,8 +1867,9 @@ section h2::before {
   height: 36px;
   fill: #00ffe0;
   animation: rotateGearInfinite 4s linear infinite;
-  opacity: 1;
+  transition: filter 0.3s ease, transform 0.3s ease;
 }
+
 
 @keyframes rotateGearInfinite {
   0% {
