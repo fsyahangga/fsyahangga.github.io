@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initProjectReveal();
   initTestimonialSlider();
   initDividerReveal(); 
+  observeGearIcon();
   getPopUpQR();
 });
 
@@ -291,3 +292,23 @@ function initDividerReveal() {
 
   dividers.forEach(divider => observer.observe(divider));
 }
+
+function observeGearIcon() {
+  const gears = document.querySelectorAll('.observe-gear svg');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  gears.forEach(icon => {
+    icon.style.animationPlayState = 'paused';
+    observer.observe(icon);
+  });
+}
+
+
