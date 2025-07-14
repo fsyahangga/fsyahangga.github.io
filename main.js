@@ -122,6 +122,7 @@ function initProjectReveal() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('reveal');
+        entry.target.classList.add('visible');
       }
     });
   }, { threshold: 0.1 });
