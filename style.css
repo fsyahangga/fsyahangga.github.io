@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -15,6 +17,10 @@ body {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   
+}
+h1, h2, h3, h4, h5, h6, .section-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
 }
 .page-wrapper {
   scroll-snap-type: y mandatory;
@@ -911,7 +917,7 @@ section h2::before {
   justify-content: center;
   align-items: center;
   animation: bounceWrapper 2.5s ease-in-out infinite;
-  box-shadow: 0 4px 20px rgba(28, 232, 239, 0.866);
+  
 }
 .logo-wrapper:hover {
   animation-play-state: paused;
@@ -1667,7 +1673,6 @@ section h2::before {
 .service-card:hover .service-icon {
   transform: rotate(360deg) scale(1.15);
   transition: transform 0.3s ease;
-  box-shadow: 0 0 20px #38bdf8, 0 0 30px #0ea5e9, 0 0 40px #06b6d4;
 }
 .service-icon {
   font-size: 2rem;
@@ -1675,7 +1680,6 @@ section h2::before {
   display: block;
   color: #38bdf8;
   transition: transform 0.3s ease;
-  box-shadow: 0 0 20px #38bdf8, 0 0 30px #0ea5e9, 0 0 40px #06b6d4;
   
 }
 
@@ -2037,7 +2041,7 @@ section h2::before {
   fill: #00ffe0;
   animation: rotateGearInfinite 4s linear infinite;
   transition: filter 0.3s ease, transform 0.3s ease;
-  border: 2px solid #00f0ff; /* Neon blue border */
+  border: 0px solid #00f0ff; /* Neon blue border */
   box-shadow:
     0 0 5px #00f0ff,
     0 0 10px #00f0ff,
