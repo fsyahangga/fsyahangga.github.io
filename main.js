@@ -312,5 +312,22 @@ function observeGearIcon() {
     observer.observe(icon);
   });
 }
+function observeLogoWrapper(){
+  const observers = document.querySelectorAll('.logo-wrapper');
+
+  const bounceObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('bounce-in-view');
+      } else {
+        entry.target.classList.remove('bounce-in-view');
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
+
+  observers.forEach(el => bounceObserver.observe(el));
+}
 
 

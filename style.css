@@ -903,6 +903,10 @@ section h2::before {
 .logo-wrapper:hover {
   animation-play-state: paused;
 }
+/* Aktifkan bounce hanya saat terlihat */
+.logo-wrapper.bounce-in-view {
+  animation: bounceWrapper 2.5s ease-in-out infinite;
+}
 /* Bounce Infinite Animation */
 @keyframes bounceWrapper {
   0%, 100% {
