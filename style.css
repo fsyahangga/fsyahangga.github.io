@@ -187,12 +187,7 @@ nav {
   width: 18px;
   height: 18px;
   filter: brightness(0) invert(1);
-  border: 2px solid #00f0ff; /* Neon blue border */
-  box-shadow:
-    0 0 5px #00f0ff,
-    0 0 10px #00f0ff,
-    0 0 20px #00f0ff,
-    0 0 30px #00f0ff;
+  
 }
 
 section {
