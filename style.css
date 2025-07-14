@@ -895,8 +895,24 @@ section h2::before {
 }
 
 .logo-wrapper {
-  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: bounceWrapper 2.5s ease-in-out infinite;
 }
+.logo-wrapper:hover {
+  animation-play-state: paused;
+}
+/* Bounce Infinite Animation */
+@keyframes bounceWrapper {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 
 .company-logo {
   width: 64px;
@@ -964,6 +980,7 @@ section h2::before {
   margin: 0;
   font-size: 1rem;
   color: #7dd3fc;
+  text-align: left;
 }
 
 .detail-block p {
