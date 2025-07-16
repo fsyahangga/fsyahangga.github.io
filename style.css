@@ -66,6 +66,7 @@ nav {
 .logo-icon:hover {
   transform: scale(1.1);
   filter: drop-shadow(0 0 10px #38bdf8);
+  backdrop-filter: blur(8px);
 }
 
 .logo-text {
@@ -772,6 +773,7 @@ footer {
   background-color: #38bdf8;
   color: #0f172a;
   transform: scale(1.2);
+  backdrop-filter: blur(8px);
 }
 
 @media (max-width: 768px) {
@@ -858,6 +860,7 @@ section h2::before {
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
+  backdrop-filter: blur(8px);
 }
 
 /* Inner card to cover animated border */
@@ -879,6 +882,7 @@ section h2::before {
 .project-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 0 20px #38bdf8, 0 0 40px #00ffe0;
+  backdrop-filter: blur(8px);
 }
 
 @keyframes borderGlow {
@@ -916,6 +920,7 @@ section h2::before {
 }
 .logo-wrapper:hover {
   animation-play-state: paused;
+  backdrop-filter: blur(8px);
 }
 /* Aktifkan bounce hanya saat terlihat */
 .logo-wrapper.bounce-in-view {
@@ -1116,6 +1121,7 @@ section h2::before {
     0 0 10px #49f70a,
     0 0 20px #49f70a,
     0 0 30px #49f70a;
+  backdrop-filter: blur(8px);
 }
 
 .experience-item.visible .exp-logo {
@@ -1210,6 +1216,7 @@ section h2::before {
 .btn-contact:hover {
   background-color: #0ea5e9;
   box-shadow: 0 0 10px #4ef217;
+  backdrop-filter: blur(8px);
 }
 .btn-contact img {
   filter: brightness(0) invert(1); /* memastikan ikon berwarna putih */
@@ -1290,6 +1297,7 @@ section h2::before {
 
 .carousel-btn:hover {
   background: #0f172a;
+  backdrop-filter: blur(8px);
 }
 
 .carousel-btn svg {
@@ -1301,6 +1309,7 @@ section h2::before {
 .testimonial-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 10px #4ef217;
+  backdrop-filter: blur(8px);
 }
 .carousel-dots {
   display: flex;
@@ -1361,9 +1370,10 @@ section h2::before {
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 .about-intro:hover {
-  background-color: #4ef217;
+  background-color: #38bdf8;
   color: #f4f5f9;
   box-shadow: 0 0 10px #4ef217;
+  backdrop-filter: blur(8px);
 }
 .about-intro.reveal-visible {
   opacity: 1;
@@ -1407,6 +1417,7 @@ section h2::before {
   background-color: #334155;
   color: #f4f5f9;
   box-shadow: 0 0 10px #4ef217;
+  backdrop-filter: blur(8px);
 }
 .abouts-intro.reveal-visible {
   opacity: 1;
@@ -1513,6 +1524,7 @@ section h2::before {
   background-color: #38bdf8;
   color: #0f172a;
   box-shadow: 0 0 10px #38bdf8;
+  backdrop-filter: blur(8px);
 }
 
 .experience-item:nth-child(1) {
@@ -1601,6 +1613,7 @@ section h2::before {
   transform: scale(1.1);
   opacity: 1;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(8px);
 }
 
 @keyframes scrollLogos {
@@ -1666,14 +1679,17 @@ section h2::before {
   transform: translateY(-6px) scale(1.02);
   background-color: #0f172a;
   box-shadow: 0 12px 24px rgba(56, 189, 248, 0.25);
+  backdrop-filter: blur(8px);
 }
 .service-card:hover h3 {
   color: #38bdf8;
+  backdrop-filter: blur(8px);
 }
 
 .service-card:hover .service-icon {
   transform: rotate(360deg) scale(1.15);
   transition: transform 0.3s ease;
+  backdrop-filter: blur(8px);
 }
 .service-icon {
   font-size: 2rem;
@@ -1746,16 +1762,19 @@ section h2::before {
   background-color: #38bdf8;
   margin: 6px auto 0 auto;
   transition: width 0.4s ease;
+  backdrop-filter: blur(8px);
 }
 
 /* Hover animasi */
 .section-title:hover {
   color: #7dd3fc;
   transform: translateY(-2px);
+  backdrop-filter: blur(8px);
 }
 
 .section-title:hover::after {
   width: 40%;
+  backdrop-filter: blur(8px);
 }
 /* Untuk judul perusahaan (h3) di experience item */
 .experience-item h3 {
@@ -1797,6 +1816,7 @@ section h2::before {
 
 .qr-code-box img:hover {
   transform: scale(1.05);
+  backdrop-filter: blur(8px);
 }
 
 /* Optional animation */
@@ -1833,6 +1853,7 @@ section h2::before {
 
 .qr-landing:hover {
   transform: scale(1.05);
+  backdrop-filter: blur(8px);
 }
 
 .qr-landing-wrapper p {
@@ -1867,6 +1888,7 @@ section h2::before {
 .qr-popup-button:hover {
   background-color: #38bdf8;
   color: #0f172a;
+  backdrop-filter: blur(8px);
 }
 
 .qr-popup-overlay {
@@ -1939,6 +1961,7 @@ section h2::before {
   background-color: #38bdf8;
   color: #0f172a;
   box-shadow: 0 0 10px #38bdf8;
+  backdrop-filter: blur(8px);
 }
 .testimonial-quote {
   font-style: italic;
@@ -1957,6 +1980,7 @@ section h2::before {
   background-color: #38bdf8;
   color: #0f172a;
   box-shadow: 0 0 10px #38bdf8;
+  backdrop-filter: blur(8px);
 }
 @keyframes neonPulse {
   0% {
@@ -1980,6 +2004,7 @@ section h2::before {
 /* Opsional: efek membesar saat hover */
 .company-logo-slider img:hover {
   transform: scale(1.05);
+  backdrop-filter: blur(8px);
 }
 
 .company-logo-slider .logo-track img:nth-child(1) { animation-delay: 0s; }
@@ -2053,6 +2078,7 @@ section h2::before {
 .section-divider-icon svg:hover {
   filter: drop-shadow(0 0 6px #00ffe0) drop-shadow(0 0 10px #00ffe0);
   transform: scale(1.1);
+  backdrop-filter: blur(8px);
 }
 
 /* Infinite rotation animation */
