@@ -828,7 +828,7 @@ section h2::before {
   margin-bottom: 3rem;
   color: #38bdf8;
   position: relative;
-  text-shadow:linear-gradient(to right, #00ffe0, #0070f3);
+  text-shadow:#00ffe0;
 }
 
 .project-list {
@@ -1058,14 +1058,25 @@ section h2::before {
   text-align: justify;
 }
 .timeline-vertical {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  position: relative;
-  margin-left: 1rem;
-  border-left: 3px solid linear-gradient(to bottom, #00ffe0, #0070f3);
   padding-left: 2rem;
+  margin-left: 1rem;
 }
+
+.timeline-vertical::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, #00ffe0, #0070f3);
+  border-radius: 2px;
+}
+
 .company-logo {
   display: block;
   margin: 0 auto 0.75rem auto;
@@ -1650,9 +1661,9 @@ section h2::before {
 .services .section-title {
   font-size: 2.2rem;
   font-weight: 700;
-  color: linear-gradient(to right, #00ffe0, #0070f3);
+  color: #00ffe0;
   margin-bottom: 10px;
-  text-shadow:linear-gradient(to right, #00ffe0, #0070f3);
+  text-shadow:#0070f3;
 }
 
 .services .section-subtitle {
@@ -1749,7 +1760,7 @@ section h2::before {
   gap: 0.5rem;
   font-size: 2rem;
   font-weight: 700;
-  color: linear-gradient(to right, #00ffe0, #0070f3);
+  color: #00ffe0;
   border-bottom: 2px solid #334155;
   padding-bottom: 0.5rem;
   margin-bottom: 2rem;
