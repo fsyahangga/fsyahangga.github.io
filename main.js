@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initProjectReveal();
   initTestimonialSlider();
   initDividerReveal(); 
+  AnimateOnScroll();
   observeGearIcon();
   getPopUpQR();
 });
@@ -330,4 +331,17 @@ function observeLogoWrapper(){
   observers.forEach(el => bounceObserver.observe(el));
 }
 
+function AnimateOnScroll(){
+  const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal');
+      }
+    });
+  });
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+}
 

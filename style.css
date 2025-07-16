@@ -1830,7 +1830,7 @@ section h2::before {
 .qr-code-box img {
   border-radius: 8px;
   transition: transform 0.3s ease;
-  width: 75%;
+  width: 90%;
   box-shadow: 0 0 20px #00ffe0, 0 0 30px #00ffe0, 0 0 40px #00ffe0;
 }
 
@@ -2146,3 +2146,41 @@ section h2::before {
   }
 }
 
+.gradient-line {
+  height: 2px;
+  width: 80%;
+  margin: 20px auto;
+  background: linear-gradient(to right, #00ffe0, #0070f3);
+  border-radius: 1px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 
+    opacity 0.8s ease,
+    transform 0.8s ease,
+    box-shadow 0.4s ease;
+}
+
+/* Reveal saat scroll */
+.gradient-line.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+/* Hover neon glow tambahan */
+.gradient-line:hover {
+  box-shadow: 0 0 8px #00ffe0, 0 0 16px #0070f3, 0 0 24px #00ffe0;
+}
+
+/* Keyframes for pulsing glow */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 4px #00ffe0, 0 0 8px #0070f3;
+  }
+  50% {
+    box-shadow: 0 0 12px #00ffe0, 0 0 24px #0070f3, 0 0 36px #00ffe0;
+  }
+  100% {
+    box-shadow: 0 0 4px #00ffe0, 0 0 8px #0070f3;
+  }
+}
