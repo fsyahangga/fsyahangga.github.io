@@ -741,7 +741,7 @@ footer {
 }
 
 .sidebar a:hover {
-  color: #38bdf8;
+  color: linear-gradient(to right, #00ffe0, #0070f3);
 }
 
 .floating-menu {
@@ -1374,9 +1374,9 @@ section h2::before {
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 .about-intro:hover {
-  background-color: #38bdf8;
+  background-color: linear-gradient(to right, #00ffe0, #0070f3);;
   border-left: 6px solid #4ef217;
-  color: #f4f5f9;
+  color: #dfe2e9;
   box-shadow: 0 0 10px #4ef217;
   backdrop-filter: blur(8px);
 }
