@@ -998,6 +998,7 @@ section h2::before {
   flex-shrink: 0;
   margin-top: 0.2rem;
   box-shadow: 0 0 10px #7dd3fc;
+  border-radius: 50%;
 }
 
 .detail-block h4 {
