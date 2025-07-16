@@ -757,6 +757,7 @@ footer {
 /*   box-shadow: 0 4px 12px rgba(0,0,0,0.3); */
   z-index: 1000;
   gap: 0.75rem;
+  box-shadow: 0 0 20px #08e396, 0 0 40px #f4f8f7;
 }
 
 .floating-menu a {
@@ -766,6 +767,7 @@ footer {
   transition: background 0.3s, transform 0.3s, color 0.3s;
   border-radius: 50%;
   text-align: center;
+  box-shadow: 0 0 20px #38bdf8, 0 0 40px #f4f8f7;
 }
 
 .floating-menu a:hover,
@@ -774,6 +776,7 @@ footer {
   color: #0f172a;
   transform: scale(1.2);
   /* backdrop-filter: blur(8px); */
+  box-shadow: 0 0 20px #38bdf8, 0 0 40px #f4f8f7;
 }
 
 @media (max-width: 768px) {
