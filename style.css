@@ -1779,7 +1779,7 @@ section h2::before {
 }
 
 .section-title:hover::after {
-  /* width: 40%; */
+  width: 70%;
   backdrop-filter: blur(8px);
 }
 /* Untuk judul perusahaan (h3) di experience item */
