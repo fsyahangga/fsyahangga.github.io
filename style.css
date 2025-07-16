@@ -174,10 +174,10 @@ nav {
   transition: background 0.3s ease;
   border: 2px solid #00f0ff; /* Neon blue border */
   box-shadow:
-    0 0 5px #00f0ff,
-    0 0 10px #00f0ff,
-    0 0 20px #00f0ff,
-    0 0 30px #00f0ff;
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 30px #fff;
 }
 
 .cta-button:hover {
@@ -998,7 +998,7 @@ section h2::before {
   flex-shrink: 0;
   margin-top: 0.2rem;
   box-shadow: 0 0 10px #7dd3fc;
-  border-radius: 50%;
+  border-radius: 30%;
 }
 
 .detail-block h4 {
@@ -1963,6 +1963,7 @@ section h2::before {
 .freelance-quote:hover {
   background-color: #38bdf8;
   color: #0f172a;
+  border-left: 4px solid #00ffe0;
   box-shadow: 0 0 10px #38bdf8;
   backdrop-filter: blur(8px);
 }
@@ -1982,6 +1983,7 @@ section h2::before {
 .testimonial-quote:hover {
   background-color: #38bdf8;
   color: #0f172a;
+  border-left: 4px solid #00ffe0;
   box-shadow: 0 0 10px #38bdf8;
   backdrop-filter: blur(8px);
 }
