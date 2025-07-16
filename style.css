@@ -827,6 +827,7 @@ section h2::before {
   margin-bottom: 3rem;
   color: #38bdf8;
   position: relative;
+  text-shadow:linear-gradient(to right, #00ffe0, #0070f3);
 }
 
 .project-list {
@@ -1650,6 +1651,7 @@ section h2::before {
   font-weight: 700;
   color: #38bdf8;
   margin-bottom: 10px;
+  text-shadow:linear-gradient(to right, #00ffe0, #0070f3);
 }
 
 .services .section-subtitle {
@@ -1817,7 +1819,7 @@ section h2::before {
 .qr-code-box img {
   border-radius: 8px;
   transition: transform 0.3s ease;
-  width: 100%;
+  width: 70%;
 }
 
 /* Hover scale effect */
