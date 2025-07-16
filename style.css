@@ -1406,7 +1406,7 @@ section h2::before {
 
 .about-header h3 {
   font-size: 1.8rem;
-  color: #00ffe0;
+  color: #334155;
   font-weight: 600;
   margin: 0;
   text-align: center;
@@ -1823,7 +1823,7 @@ section h2::before {
 /* Heading style */
 .qr-code-box h3 {
   color: #00ffe0;
-  font-size: 0.9rem;
+  font-size: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
@@ -1831,7 +1831,8 @@ section h2::before {
 .qr-code-box img {
   border-radius: 8px;
   transition: transform 0.3s ease;
-  width: 90%;
+  width: 75%;
+  box-shadow: 0 0 20px #00ffe0, 0 0 30px #00ffe0, 0 0 40px #00ffe0;
 }
 
 /* Hover scale effect */
