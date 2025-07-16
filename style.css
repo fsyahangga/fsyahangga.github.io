@@ -734,15 +734,14 @@ footer {
 }
 
 .sidebar a {
-  color: #f1f5f9;
+  color: #00ffe0;
   font-weight: 500;
   text-decoration: none;
   transition: color 0.3s;
 }
 
 .sidebar a:hover {
-  color: #00ffe0;
-  box-shadow: -2px 0 8px #f1f5f9;
+  color: #fbffff;
 }
 
 .floating-menu {
@@ -771,7 +770,7 @@ footer {
 
 .floating-menu a:hover,
 .floating-menu a.active {
-  background-color: #38bdf8;
+  background-color: #00ffe0;
   color: #0f172a;
   transform: scale(1.2);
   /* backdrop-filter: blur(8px); */
