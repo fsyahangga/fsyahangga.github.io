@@ -1063,7 +1063,7 @@ section h2::before {
   gap: 2rem;
   position: relative;
   margin-left: 1rem;
-  border-left: 3px solid #38bdf8;
+  border-left: 3px solid linear-gradient(to bottom, #00ffe0, #0070f3);
   padding-left: 2rem;
 }
 .company-logo {
@@ -1375,7 +1375,7 @@ section h2::before {
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 .about-intro:hover {
-  background-color: linear-gradient(to right, #00ffe0, #0070f3);;
+  background-color: linear-gradient(to right, #00ffe0, #0070f3);
   border-left: 6px solid #4ef217;
   color: #dfe2e9;
   box-shadow: 0 0 10px #4ef217;
