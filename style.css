@@ -2079,7 +2079,7 @@ section h2::before {
   gap: 1rem;
   margin: 2rem auto;
   width: 80%;
-  max-width: 1200px; /* optional: batasi lebar maksimal */
+  max-width: 1000px; /* optional: batasi lebar maksimal */
 }
 
 .section-divider-line {
