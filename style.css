@@ -1586,26 +1586,26 @@ section h2::before {
   background-color: #f1f5f9 ;
   border-radius: 1rem;
   margin-top: 2rem;
-  box-shadow: 0 0 15px #38bdf8;
+  box-shadow: 0 0 15px #00ffe0;
 }
 .company-logo-slider .logo-track img {
   border: 2px solid #00f0ff; /* Neon blue border */
   border-radius: 8px;
   box-shadow:
-    0 0 5px #00f0ff,
-    0 0 10px #00f0ff,
-    0 0 20px #00f0ff,
-    0 0 30px #00f0ff;
+    0 0 5px #00ffe0,
+    0 0 10px #00ffe0,
+    0 0 20px #00ffe0,
+    0 0 30px #00ffe0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .company-logo-slider .logo-track img:hover {
   transform: scale(1.05);
   box-shadow:
-    0 0 10px #00f0ff,
-    0 0 20px #00f0ff,
-    0 0 30px #00f0ff,
-    0 0 40px #00f0ff;
+    0 0 10px #00ffe0,
+    0 0 20px #00ffe0,
+    0 0 30px #00ffe0,
+    0 0 40px #00ffe0;
 }
 
 .logo-track {
@@ -1614,7 +1614,7 @@ section h2::before {
   animation: scrollLogos 60s linear infinite;
   width: max-content;
   align-items: center;
-  box-shadow: 0 0 15px #38bdf8;
+  box-shadow: 0 0 15px #00ffe0;
 }
 
 .logo-track img {
@@ -1822,7 +1822,7 @@ section h2::before {
 /* Heading style */
 .qr-code-box h3 {
   color: #00ffe0;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   margin-bottom: 0.5rem;
 }
 
