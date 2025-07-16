@@ -1038,11 +1038,11 @@ section h2::before {
   align-items: flex-start;
 }
 
-.detail-icon {
+/* .detail-icon {
   font-size: 1.4rem;
   flex-shrink: 0;
   margin-top: 0.2rem;
-}
+} */
 
 .detail-block h4 {
   margin: 0;
@@ -1342,10 +1342,10 @@ section h2::before {
   color: #38bdf8; /* warna biru terang */
 }
 
-.detail-icon {
+/* .detail-icon {
   font-size: 1.5rem;
   margin-right: 0.5rem;
-}
+} */
 .testimonial-footer {
   display: flex;
   align-items: center;
