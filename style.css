@@ -1649,7 +1649,7 @@ section h2::before {
 .services .section-title {
   font-size: 2.2rem;
   font-weight: 700;
-  color: #38bdf8;
+  color: linear-gradient(to right, #00ffe0, #0070f3);
   margin-bottom: 10px;
   text-shadow:linear-gradient(to right, #00ffe0, #0070f3);
 }
@@ -1748,7 +1748,7 @@ section h2::before {
   gap: 0.5rem;
   font-size: 2rem;
   font-weight: 700;
-  color: #38bdf8;
+  color: linear-gradient(to right, #00ffe0, #0070f3);
   border-bottom: 2px solid #334155;
   padding-bottom: 0.5rem;
   margin-bottom: 2rem;
@@ -1793,7 +1793,7 @@ section h2::before {
 
 .qr-code-box {
   position: fixed;
-  bottom: 2rem;
+  top: 2rem;
   left: 2rem;
   z-index: 9999;
   border-radius: 1rem;
