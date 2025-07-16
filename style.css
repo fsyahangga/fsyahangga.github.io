@@ -1793,7 +1793,7 @@ section h2::before {
 
 .qr-code-box {
   position: fixed;
-  top: 4rem;
+  top: 7rem;
   left: 1rem;
   z-index: 9999;
   border-radius: 1rem;
