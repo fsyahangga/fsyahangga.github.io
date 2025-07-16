@@ -793,7 +793,7 @@ footer {
   }
 }
 .floating-menu a.active {
-  background-color: #38bdf8;
+  background-color: #00ffe0;
   color: #0f172a;
   transform: scale(1.2);
 }
@@ -1822,7 +1822,7 @@ section h2::before {
 /* Heading style */
 .qr-code-box h3 {
   color: #00ffe0;
-  font-size: 0.5rem;
+  font-size: 0.85rem;
   margin-bottom: 0.5rem;
 }
 
