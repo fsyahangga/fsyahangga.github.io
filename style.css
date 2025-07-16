@@ -1299,6 +1299,7 @@ section h2::before {
 
 .testimonial-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 0 10px #4ef217;
 }
 .carousel-dots {
   display: flex;
@@ -1358,7 +1359,11 @@ section h2::before {
   transform: translateY(40px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-
+.about-intro:hover {
+  background-color: #334155;
+  color: #f4f5f9;
+  box-shadow: 0 0 10px #4ef217;
+}
 .about-intro.reveal-visible {
   opacity: 1;
   transform: translateY(0);
@@ -1398,9 +1403,9 @@ section h2::before {
   transition: all 0.8s ease;
 }
 .abouts-intro:hover {
-  background-color: #38bdf8;
-  color: #0f172a;
-  box-shadow: 0 0 10px #38bdf8;
+  background-color: #334155;
+  color: #f4f5f9;
+  box-shadow: 0 0 10px #4ef217;
 }
 .abouts-intro.reveal-visible {
   opacity: 1;
