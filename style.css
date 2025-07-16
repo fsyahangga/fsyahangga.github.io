@@ -1310,6 +1310,7 @@ section h2::before {
 
 .testimonial-card:hover {
   transform: translateY(-5px);
+  border: 1px solid rgba(173, 251, 17, 0.766);
   box-shadow: 0 0 10px #4ef217;
   backdrop-filter: blur(8px);
 }
@@ -2054,7 +2055,7 @@ section h2::before {
   gap: 1rem;
   margin: 2rem auto;
   width: 80%;
-  max-width: 800px; /* optional: batasi lebar maksimal */
+  max-width: 900px; /* optional: batasi lebar maksimal */
 }
 
 .section-divider-line {
@@ -2072,11 +2073,7 @@ section h2::before {
   fill: #00ffe0;
   animation: rotateGearInfinite 4s linear infinite;
   transition: filter 0.3s ease, transform 0.3s ease;
-  box-shadow:
-    0 0 5px #00f0ff,
-    0 0 10px #00f0ff,
-    0 0 20px #00f0ff,
-    0 0 30px #00f0ff;
+  
 }
 
 /* Hover effect: neon glow */
