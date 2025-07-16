@@ -1386,7 +1386,7 @@ section h2::before {
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 .about-intro:hover {
-  background-color: linear-gradient(to right, #00ffe0, #0070f3);
+  background-color: #00ffe0;
   border-left: 6px solid #4ef217;
   color: #dfe2e9;
   box-shadow: 0 0 10px #4ef217;
@@ -1406,7 +1406,7 @@ section h2::before {
 
 .about-header h3 {
   font-size: 1.8rem;
-  color: #dfe2e9;
+  color: #00ffe0;
   font-weight: 600;
   margin: 0;
   text-align: center;
@@ -1805,7 +1805,7 @@ section h2::before {
 
 .qr-code-box {
   position: fixed;
-  top: 6.5rem;
+  top: 5.5rem;
   left: 1rem;
   z-index: 9999;
   border-radius: 1rem;
