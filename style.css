@@ -714,7 +714,7 @@ footer {
   width: 220px;
   height: 100%;
 /*   background-color: #1e293b; */
-  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.4);
+  box-shadow: -2px 0 8px rgba(255, 255, 255, 0.4);
   padding: 2rem 1rem;
   transition: right 0.4s ease-in-out;
   z-index: 999;
@@ -741,7 +741,8 @@ footer {
 }
 
 .sidebar a:hover {
-  color: linear-gradient(to right, #00ffe0, #0070f3);
+  color: linear-gradient(135deg, #00ffe0, #0070f3);
+  box-shadow: -2px 0 8px #f1f5f9;
 }
 
 .floating-menu {
@@ -1819,7 +1820,7 @@ section h2::before {
 .qr-code-box img {
   border-radius: 8px;
   transition: transform 0.3s ease;
-  width: 70%;
+  width: 90%;
 }
 
 /* Hover scale effect */
