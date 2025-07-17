@@ -1388,7 +1388,7 @@ section h2::before {
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 .about-intro:hover {
-  background-color: #00ffe0;
+  background-color: #94a3b8;
   border-left: 6px solid #4ef217;
   color: #dfe2e9;
   box-shadow: 0 0 10px #4ef217;
@@ -2221,6 +2221,25 @@ section h2::before {
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
+}
+.narrative-title:hover {
+  color: #ffffff;
+  text-shadow: 
+    0 0 5px #38bdf8, 
+    0 0 10px #0ea5e9, 
+    0 0 15px #06b6d4, 
+    0 0 20px #22d3ee;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.narrative-subtitle:hover {
+  color: #f8fafc;
+  text-shadow: 
+    0 0 4px #94a3b8, 
+    0 0 8px #64748b;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
 }
 
 /* Text glow effect */
