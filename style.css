@@ -757,7 +757,7 @@ footer {
 /*   box-shadow: 0 4px 12px rgba(0,0,0,0.3); */
   z-index: 1000;
   gap: 0.75rem;
-  box-shadow: 0 0 20px #08e396, 0 0 40px #f4f8f7;
+  /* box-shadow: 0 0 20px #08e396, 0 0 40px #f4f8f7; */
 }
 
 .floating-menu a {
