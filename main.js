@@ -1,6 +1,7 @@
 // main.js
 
 document.addEventListener("DOMContentLoaded", () => {
+  initdotsBg();
   initSidebarToggle();
   initSmoothScroll();
   initScrollSpy();
@@ -345,3 +346,56 @@ function AnimateOnScroll(){
   });
 }
 
+function initdotsBg(){
+  const canvas = document.getElementById('dots-bg');
+  const ctx = canvas.getContext('2d');
+  let dots = [];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  window.addEventListener('resize', () => {
+    resizeCanvas();
+    createDots(300); // regenerate on resize
+  });
+
+  resizeCanvas();
+
+  function createDots(num = 300) {
+    dots = [];
+    for (let i = 0; i < num; i++) {
+      dots.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.5 + 0.4,
+        opacity: Math.random() * 0.5 + 0.2,
+        pulse: Math.random() * 0.01 + 0.003,
+        direction: Math.random() < 0.5 ? -1 : 1
+      });
+    }
+  }
+
+  function animateDots() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    dots.forEach(dot => {
+      ctx.beginPath();
+      ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(0, 255, 145, ${dot.opacity})`;
+      ctx.shadowColor = 'rgba(0, 255, 145, 0.6)';
+      ctx.shadowBlur = 5;
+      ctx.fill();
+
+      // Update opacity for pulsing effect
+      dot.opacity += dot.pulse * dot.direction;
+      if (dot.opacity >= 0.8 || dot.opacity <= 0.2) {
+        dot.direction *= -1;
+      }
+    });
+    requestAnimationFrame(animateDots);
+  }
+
+  createDots(300); // << lebih banyak dots
+  animateDots();
+}
