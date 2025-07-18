@@ -347,7 +347,7 @@ function AnimateOnScroll(){
 }
 
 function initdotsBg(){
-   const canvas = document.getElementById('dots-bg');
+  const canvas = document.getElementById('dots-bg');
   const ctx = canvas.getContext('2d');
 
   let width = window.innerWidth;
@@ -416,15 +416,12 @@ function initdotsBg(){
 
       dot.y += scrollY * 0.0005;
 
-      // Bounce dari sisi layar
       if (dot.x < 0 || dot.x > width) dot.dx *= -1;
       if (dot.y < 0 || dot.y > height) dot.dy *= -1;
 
-      // Pulse opacity
       dot.opacity += dot.pulse * dot.direction;
       if (dot.opacity >= 0.9 || dot.opacity <= 0.2) dot.direction *= -1;
 
-      // Gambar dot
       ctx.beginPath();
       ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(0, 255, 145, ${dot.opacity})`;
@@ -432,7 +429,6 @@ function initdotsBg(){
       ctx.shadowBlur = 6;
       ctx.fill();
 
-      // 🔗 Garis antar dots
       for (let j = i + 1; j < dots.length; j++) {
         const otherDot = dots[j];
         const dx = dot.x - otherDot.x;
