@@ -347,55 +347,106 @@ function AnimateOnScroll(){
 }
 
 function initdotsBg(){
-  const canvas = document.getElementById('dots-bg');
+   const canvas = document.getElementById('dots-bg');
   const ctx = canvas.getContext('2d');
+
+  let width = window.innerWidth;
+  let height = window.innerHeight;
   let dots = [];
+  const numDots = 180;
+  let mouse = { x: width / 2, y: height / 2 };
+  let scrollY = 0;
 
   function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+    createDots();
   }
 
-  window.addEventListener('resize', () => {
-    resizeCanvas();
-    createDots(300); // regenerate on resize
+  window.addEventListener('resize', resizeCanvas);
+  window.addEventListener('scroll', () => {
+    scrollY = window.scrollY;
   });
 
-  resizeCanvas();
+  canvas.addEventListener('mousemove', e => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
 
-  function createDots(num = 300) {
+  function createDots() {
     dots = [];
-    for (let i = 0; i < num; i++) {
+    for (let i = 0; i < numDots; i++) {
       dots.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * 1.5 + 0.4,
-        opacity: Math.random() * 0.5 + 0.2,
-        pulse: Math.random() * 0.01 + 0.003,
-        direction: Math.random() < 0.5 ? -1 : 1
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: Math.random() * 1.6 + 0.6,
+        opacity: Math.random() * 0.4 + 0.3,
+        dx: (Math.random() - 0.5) * 0.4,
+        dy: (Math.random() - 0.5) * 0.4,
+        pulse: Math.random() * 0.01 + 0.002,
+        direction: 1
       });
     }
   }
 
+  function drawLine(dot1, dot2, dist) {
+    const opacity = 1 - dist / 120;
+    ctx.beginPath();
+    ctx.moveTo(dot1.x, dot1.y);
+    ctx.lineTo(dot2.x, dot2.y);
+    ctx.strokeStyle = `rgba(0, 255, 145, ${opacity * 0.3})`;
+    ctx.lineWidth = 0.7;
+    ctx.stroke();
+  }
+
   function animateDots() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    dots.forEach(dot => {
+    ctx.clearRect(0, 0, width, height);
+
+    dots.forEach((dot, i) => {
+      const dx = mouse.x - dot.x;
+      const dy = (mouse.y + scrollY) - dot.y;
+      const distToMouse = Math.sqrt(dx * dx + dy * dy);
+      const maxMouseDist = 150;
+      const influence = Math.max(0, (maxMouseDist - distToMouse) / maxMouseDist);
+
+      dot.x += dot.dx + (dx / distToMouse || 0) * influence * 0.4;
+      dot.y += dot.dy + (dy / distToMouse || 0) * influence * 0.4;
+
+      dot.y += scrollY * 0.0005;
+
+      // Bounce dari sisi layar
+      if (dot.x < 0 || dot.x > width) dot.dx *= -1;
+      if (dot.y < 0 || dot.y > height) dot.dy *= -1;
+
+      // Pulse opacity
+      dot.opacity += dot.pulse * dot.direction;
+      if (dot.opacity >= 0.9 || dot.opacity <= 0.2) dot.direction *= -1;
+
+      // Gambar dot
       ctx.beginPath();
       ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(0, 255, 145, ${dot.opacity})`;
-      ctx.shadowColor = 'rgba(0, 255, 145, 0.6)';
-      ctx.shadowBlur = 5;
+      ctx.shadowColor = 'rgba(0, 255, 145, 0.5)';
+      ctx.shadowBlur = 6;
       ctx.fill();
 
-      // Update opacity for pulsing effect
-      dot.opacity += dot.pulse * dot.direction;
-      if (dot.opacity >= 0.8 || dot.opacity <= 0.2) {
-        dot.direction *= -1;
+      // 🔗 Garis antar dots
+      for (let j = i + 1; j < dots.length; j++) {
+        const otherDot = dots[j];
+        const dx = dot.x - otherDot.x;
+        const dy = dot.y - otherDot.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 100) {
+          drawLine(dot, otherDot, dist);
+        }
       }
     });
+
     requestAnimationFrame(animateDots);
   }
 
-  createDots(300); // << lebih banyak dots
+  resizeCanvas();
   animateDots();
 }
