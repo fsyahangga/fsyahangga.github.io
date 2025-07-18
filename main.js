@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   AnimateOnScroll();
   observeGearIcon();
   getPopUpQR();
+  observeLogoWrapper();
 });
 
 window.addEventListener('scroll', () => {
@@ -27,6 +28,14 @@ window.addEventListener('scroll', () => {
     nav.style.background = 'rgba(30, 41, 59, 0.6)';
   }
 });
+window.addEventListener('resize', resizeDotsCanvas);
+window.addEventListener('load', resizeDotsCanvas);
+
+function resizeDotsCanvas() {
+  const canvas = document.getElementById('dots-bg');
+  canvas.width = window.innerWidth;
+  canvas.height = document.body.scrollHeight;
+}
 
 // Toggle sidebar (☰)
 function initSidebarToggle() {
