@@ -1,7 +1,7 @@
 // main.js
 
 document.addEventListener("DOMContentLoaded", () => {
-  initDotsBg();
+  // initDotsBg();
   // setCanvasHeightToScroll();
   initSidebarToggle();
   initSmoothScroll();
