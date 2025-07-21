@@ -2,6 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   initdotsBg();
+  setCanvasHeightToScroll();
   initSidebarToggle();
   initSmoothScroll();
   initScrollSpy();
@@ -28,7 +29,10 @@ window.addEventListener('scroll', () => {
     nav.style.background = 'rgba(30, 41, 59, 0.6)';
   }
 });
-window.addEventListener('resize', resizeDotsCanvas);
+window.addEventListener("resize", () => {
+  resizeDotsCanvas();
+  setCanvasHeightToScroll();
+});
 window.addEventListener('load', resizeDotsCanvas);
 
 function resizeDotsCanvas() {
@@ -36,6 +40,13 @@ function resizeDotsCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = document.body.scrollHeight;
 }
+function setCanvasHeightToScroll() {
+  const canvas = document.getElementById('dots-bg');
+  if (canvas) {
+    canvas.height = document.body.scrollHeight;
+  }
+}
+
 
 // Toggle sidebar (☰)
 function initSidebarToggle() {
