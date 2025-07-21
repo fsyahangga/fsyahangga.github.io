@@ -366,64 +366,60 @@ function AnimateOnScroll(){
   });
 }
 
-function initdotsBg() {
-  const canvas = document.getElementById('dots-bg');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let dots = [];
-  const numDots = 120, maxDist = 80;
-  let mouse = { x: 0, y: 0 };
-  let width = 0, height = 0;
 
-  function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = document.documentElement.scrollHeight;
-    dots = Array.from({ length: numDots }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      r: Math.random() * 1.5 + 0.5,
-      dx: (Math.random() - 0.5) * 0.3,
-      dy: (Math.random() - 0.5) * 0.3,
-      o: Math.random() * 0.5 + 0.2
-    }));
+
+function initDotsBg() {
+  const svg = document.getElementById("dots-bg-svg");
+  const totalDots = 100;
+  const dots = [];
+
+  function random(min, max) {
+    return Math.random() * (max - min) + min;
   }
 
-  window.addEventListener('resize', resize);
-  window.addEventListener('load', resize);
-  window.addEventListener('scroll', resize); // jaga tinggi seiring isi bertambah
-  window.addEventListener('mousemove', e => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY + window.scrollY;
-  });
+  function createDot() {
+    const cx = random(0, window.innerWidth);
+    const cy = random(0, window.innerHeight + window.scrollY);
+    const r = random(1.5, 3);
+    const delay = random(0, 4000);
 
-  function animate() {
-    ctx.clearRect(0, 0, width, height);
-    for (let i = 0; i < dots.length; i++) {
-      const d = dots[i];
-      d.x += d.dx; d.y += d.dy;
-      if (d.x < 0 || d.x > width) d.dx *= -1;
-      if (d.y < 0 || d.y > height) d.dy *= -1;
-      ctx.fillStyle = `rgba(0,255,145,${d.o})`;
-      ctx.beginPath(); ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2); ctx.fill();
+    const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    dot.setAttribute("class", "dot");
+    dot.setAttribute("cx", cx);
+    dot.setAttribute("cy", cy);
+    dot.setAttribute("r", r);
 
-      for (let j = i + 1; j < dots.length; j++) {
-        const d2 = dots[j];
-        const dist = Math.hypot(d.x - d2.x, d.y - d2.y);
-        if (dist < maxDist) {
-          ctx.strokeStyle = `rgba(0,255,145,${(maxDist - dist)/maxDist * 0.2})`;
-          ctx.lineWidth = 0.6;
-          ctx.beginPath();
-          ctx.moveTo(d.x, d.y);
-          ctx.lineTo(d2.x, d2.y);
-          ctx.stroke();
-        }
-      }
-    }
-    requestAnimationFrame(animate);
+    svg.appendChild(dot);
+    dots.push(dot);
+
+    setTimeout(() => {
+      dot.style.opacity = 1;
+
+      setTimeout(() => {
+        dot.style.opacity = 0;
+        setTimeout(() => {
+          svg.removeChild(dot);
+          dots.splice(dots.indexOf(dot), 1);
+          createDot(); // regenerate
+        }, 1000); // match fade-out duration
+      }, 4000 + delay);
+    }, delay);
   }
 
-  resize();
-  animate();
+  // Initial batch
+  for (let i = 0; i < totalDots; i++) {
+    createDot();
+  }
+
+  // Update height on resize or scroll
+  const updateSVGHeight = () => {
+    svg.setAttribute("height", document.body.scrollHeight);
+  };
+  window.addEventListener("resize", updateSVGHeight);
+  window.addEventListener("scroll", updateSVGHeight);
+  updateSVGHeight();
 }
+
+document.addEventListener("DOMContentLoaded", initDotsBg);
 
 
