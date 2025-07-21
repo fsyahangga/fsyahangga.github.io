@@ -420,6 +420,4 @@ function initDotsBg() {
   updateSVGHeight();
 }
 
-document.addEventListener("DOMContentLoaded", initDotsBg);
-
 
