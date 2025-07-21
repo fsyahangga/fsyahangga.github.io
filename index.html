@@ -1017,11 +1017,12 @@
       </div>
     </div>    
   </section>
-
+  <canvas id="dots-bg"></canvas>
+  <svg id="dots-bg-svg" style="position: fixed; top: 0; left: 0; z-index: -1; pointer-events: none;" width="100%" height="100%"></svg>
   <footer>
     <p>© 2025 fsyahangga — Built with 💻 and ☕</p>
   </footer>
-  <canvas id="dots-bg"></canvas>
+  
   <div class="qr-popup-overlay" id="qrPopup">
     <div class="qr-popup-content">
       <span class="qr-popup-close" onclick="document.getElementById('qrPopup').style.display='none'">&times;</span>
@@ -1043,7 +1044,7 @@
       />
       <p style="font-size: 0.9rem; margin-top: 0.5rem;"><span>🔎 Scan Me</span></p>
     </div>
-    <svg id="dots-bg-svg" style="position: fixed; top: 0; left: 0; z-index: -1; pointer-events: none;" width="100%" height="100%"></svg>
+    
     <script src="main.js"></script>  
 </body>
 </html>
