@@ -31,7 +31,7 @@ window.addEventListener('scroll', () => {
 });
 window.addEventListener("resize", () => {
   resizeDotsCanvas();
-  // setCanvasHeightToScroll();
+  
 });
 window.addEventListener('load', resizeDotsCanvas);
 
@@ -366,21 +366,19 @@ function AnimateOnScroll(){
   });
 }
 
-
-
 function initDotsBg() {
   const canvas = document.getElementById("dots-bg");
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
-  let width, height;
+  let width = 0, height = 0;
+  const DOT_COUNT = 80;
   const dots = [];
-  const TOTAL = 80;
 
-  function resize() {
+  function resizeCanvas() {
     width = canvas.width = window.innerWidth;
     height = canvas.height = document.body.scrollHeight;
     dots.length = 0;
-    for (let i = 0; i < TOTAL; i++) {
+    for (let i = 0; i < DOT_COUNT; i++) {
       dots.push({
         x: Math.random() * width,
         y: Math.random() * height,
@@ -392,15 +390,15 @@ function initDotsBg() {
     }
   }
 
-  window.addEventListener("resize", resize);
-  window.addEventListener("scroll", resize);
+  window.addEventListener("resize", resizeCanvas);
+  window.addEventListener("scroll", resizeCanvas);
 
   function animate() {
     ctx.clearRect(0, 0, width, height);
     for (let i = 0; i < dots.length; i++) {
       const d = dots[i];
-      d.x += d.dx; d.y += d.dy;
-
+      d.x += d.dx;
+      d.y += d.dy;
       if (d.x < 0 || d.x > width) d.dx *= -1;
       if (d.y < 0 || d.y > height) d.dy *= -1;
 
@@ -411,12 +409,11 @@ function initDotsBg() {
       ctx.shadowBlur = 4;
       ctx.fill();
 
-      // connect neighboring dots
       for (let j = i + 1; j < dots.length; j++) {
         const d2 = dots[j];
         const dist = Math.hypot(d.x - d2.x, d.y - d2.y);
         if (dist < 80) {
-          ctx.strokeStyle = `rgba(0,255,145,${(80 - dist) / 80 * 0.2})`;
+          ctx.strokeStyle = `rgba(0,255,145,${(80 - dist)/80 * 0.2})`;
           ctx.lineWidth = 0.5;
           ctx.beginPath();
           ctx.moveTo(d.x, d.y);
@@ -428,7 +425,7 @@ function initDotsBg() {
     requestAnimationFrame(animate);
   }
 
-  resize();
+  resizeCanvas();
   animate();
 }
 
