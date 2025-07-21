@@ -366,103 +366,102 @@ function AnimateOnScroll(){
   });
 }
 
-function initdotsBg(){
+function initDotsBg() {
   const canvas = document.getElementById('dots-bg');
+  if (!canvas || !canvas.getContext) return;
+
   const ctx = canvas.getContext('2d');
-
   let width = window.innerWidth;
-  let height = window.innerHeight;
-  let dots = [];
-  const numDots = 180;
-  let mouse = { x: width / 2, y: height / 2 };
-  let scrollY = 0;
+  let height = document.body.scrollHeight;
+  canvas.width = width;
+  canvas.height = height;
 
-  function resizeCanvas() {
-    width = window.innerWidth;
-    height = window.innerHeight;
-    canvas.width = width;
-    canvas.height = height;
-    createDots();
+  const dots = [];
+  const numDots = 100;
+  const maxDist = 120;
+
+  const mouse = { x: null, y: null };
+
+  for (let i = 0; i < numDots; i++) {
+    dots.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5
+    });
   }
 
-  window.addEventListener('resize', resizeCanvas);
-  window.addEventListener('scroll', () => {
-    scrollY = window.scrollY;
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+
+    for (let i = 0; i < numDots; i++) {
+      const d = dots[i];
+      d.x += d.vx;
+      d.y += d.vy;
+
+      if (d.x < 0 || d.x > width) d.vx *= -1;
+      if (d.y < 0 || d.y > height) d.vy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, 2, 0, Math.PI * 2);
+      ctx.fillStyle = '#00ffcc';
+      ctx.shadowColor = '#00ffcc';
+      ctx.shadowBlur = 4;
+      ctx.fill();
+    }
+
+    for (let i = 0; i < numDots; i++) {
+      for (let j = i + 1; j < numDots; j++) {
+        const dx = dots[i].x - dots[j].x;
+        const dy = dots[i].y - dots[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < maxDist) {
+          ctx.beginPath();
+          ctx.moveTo(dots[i].x, dots[i].y);
+          ctx.lineTo(dots[j].x, dots[j].y);
+          ctx.strokeStyle = `rgba(0, 255, 204, ${1 - dist / maxDist})`;
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+        }
+      }
+
+      // connect to mouse
+      if (mouse.x !== null && mouse.y !== null) {
+        const dx = dots[i].x - mouse.x;
+        const dy = dots[i].y - mouse.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < maxDist) {
+          ctx.beginPath();
+          ctx.moveTo(dots[i].x, dots[i].y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.strokeStyle = `rgba(0, 255, 204, ${1 - dist / maxDist})`;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+
+  window.addEventListener('resize', () => {
+    width = window.innerWidth;
+    height = document.body.scrollHeight;
+    canvas.width = width;
+    canvas.height = height;
   });
 
-  canvas.addEventListener('mousemove', e => {
+  window.addEventListener('mousemove', (e) => {
     mouse.x = e.clientX;
     mouse.y = e.clientY;
   });
 
-  function createDots() {
-    dots = [];
-    for (let i = 0; i < numDots; i++) {
-      dots.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        radius: Math.random() * 1.6 + 0.6,
-        opacity: Math.random() * 0.4 + 0.3,
-        dx: (Math.random() - 0.5) * 0.4,
-        dy: (Math.random() - 0.5) * 0.4,
-        pulse: Math.random() * 0.01 + 0.002,
-        direction: 1
-      });
-    }
-  }
-
-  function drawLine(dot1, dot2, dist) {
-    const opacity = 1 - dist / 120;
-    ctx.beginPath();
-    ctx.moveTo(dot1.x, dot1.y);
-    ctx.lineTo(dot2.x, dot2.y);
-    ctx.strokeStyle = `rgba(0, 255, 145, ${opacity * 0.3})`;
-    ctx.lineWidth = 0.7;
-    ctx.stroke();
-  }
-
-  function animateDots() {
-    ctx.clearRect(0, 0, width, height);
-
-    dots.forEach((dot, i) => {
-      const dx = mouse.x - dot.x;
-      const dy = (mouse.y + scrollY) - dot.y;
-      const distToMouse = Math.sqrt(dx * dx + dy * dy);
-      const maxMouseDist = 150;
-      const influence = Math.max(0, (maxMouseDist - distToMouse) / maxMouseDist);
-
-      dot.x += dot.dx + (dx / distToMouse || 0) * influence * 0.4;
-      dot.y += dot.dy + (dy / distToMouse || 0) * influence * 0.4;
-
-      dot.y += scrollY * 0.0005;
-
-      if (dot.x < 0 || dot.x > width) dot.dx *= -1;
-      if (dot.y < 0 || dot.y > height) dot.dy *= -1;
-
-      dot.opacity += dot.pulse * dot.direction;
-      if (dot.opacity >= 0.9 || dot.opacity <= 0.2) dot.direction *= -1;
-
-      ctx.beginPath();
-      ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(0, 255, 145, ${dot.opacity})`;
-      ctx.shadowColor = 'rgba(0, 255, 145, 0.5)';
-      ctx.shadowBlur = 6;
-      ctx.fill();
-
-      for (let j = i + 1; j < dots.length; j++) {
-        const otherDot = dots[j];
-        const dx = dot.x - otherDot.x;
-        const dy = dot.y - otherDot.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 100) {
-          drawLine(dot, otherDot, dist);
-        }
-      }
-    });
-
-    requestAnimationFrame(animateDots);
-  }
-
-  resizeCanvas();
-  animateDots();
+  window.addEventListener('mouseout', () => {
+    mouse.x = null;
+    mouse.y = null;
+  });
 }
