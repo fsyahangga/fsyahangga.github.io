@@ -31,7 +31,7 @@ window.addEventListener('scroll', () => {
 });
 // window.addEventListener("resize", () => {
 //   resizeDotsCanvas();
-  
+
 // });
 // window.addEventListener('load', resizeDotsCanvas);
 
