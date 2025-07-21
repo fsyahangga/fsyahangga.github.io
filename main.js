@@ -366,102 +366,67 @@ function AnimateOnScroll(){
   });
 }
 
-function initDotsBg() {
+function initdotsBg() {
   const canvas = document.getElementById('dots-bg');
-  if (!canvas || !canvas.getContext) return;
-
+  if (!canvas) return;
   const ctx = canvas.getContext('2d');
-  let width = window.innerWidth;
-  let height = document.body.scrollHeight;
-  canvas.width = width;
-  canvas.height = height;
 
-  const dots = [];
-  const numDots = 100;
-  const maxDist = 120;
+  let dots = [];
+  const numDots = 120; // kurangi jumlah titik
+  const maxDist = 80;
+  let mouse = { x: 0, y: 0 };
+  let width, height;
 
-  const mouse = { x: null, y: null };
-
-  for (let i = 0; i < numDots; i++) {
-    dots.push({
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = document.body.scrollHeight;
+    dots = Array.from({ length: numDots }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.5,
-      vy: (Math.random() - 0.5) * 0.5
-    });
+      r: Math.random() * 1.5 + 0.5,
+      dx: (Math.random() - 0.5) * 0.3,
+      dy: (Math.random() - 0.5) * 0.3,
+      o: Math.random() * 0.5 + 0.2
+    }));
   }
 
-  function draw() {
+  window.addEventListener('resize', resize);
+  window.addEventListener('load', resize);
+  window.addEventListener('mousemove', e => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY + window.scrollY;
+  });
+
+  function animate() {
     ctx.clearRect(0, 0, width, height);
-
-    for (let i = 0; i < numDots; i++) {
-      const d = dots[i];
-      d.x += d.vx;
-      d.y += d.vy;
-
-      if (d.x < 0 || d.x > width) d.vx *= -1;
-      if (d.y < 0 || d.y > height) d.vy *= -1;
+    dots.forEach((d, i) => {
+      d.x += d.dx;
+      d.y += d.dy;
+      if (d.x < 0 || d.x > width) d.dx *= -1;
+      if (d.y < 0 || d.y > height) d.dy *= -1;
 
       ctx.beginPath();
-      ctx.arc(d.x, d.y, 2, 0, Math.PI * 2);
-      ctx.fillStyle = '#00ffcc';
-      ctx.shadowColor = '#00ffcc';
-      ctx.shadowBlur = 4;
+      ctx.arc(d.x, d.y, d.r, 0, 2 * Math.PI);
+      ctx.fillStyle = `rgba(0,255,145,${d.o})`;
       ctx.fill();
-    }
 
-    for (let i = 0; i < numDots; i++) {
-      for (let j = i + 1; j < numDots; j++) {
-        const dx = dots[i].x - dots[j].x;
-        const dy = dots[i].y - dots[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-
+      for (let j = i + 1; j < dots.length; j++) {
+        const d2 = dots[j];
+        const dist = Math.hypot(d.x - d2.x, d.y - d2.y);
         if (dist < maxDist) {
-          ctx.beginPath();
-          ctx.moveTo(dots[i].x, dots[i].y);
-          ctx.lineTo(dots[j].x, dots[j].y);
-          ctx.strokeStyle = `rgba(0, 255, 204, ${1 - dist / maxDist})`;
+          ctx.strokeStyle = `rgba(0,255,145,${(maxDist - dist) / maxDist * 0.2})`;
           ctx.lineWidth = 0.6;
-          ctx.stroke();
-        }
-      }
-
-      // connect to mouse
-      if (mouse.x !== null && mouse.y !== null) {
-        const dx = dots[i].x - mouse.x;
-        const dy = dots[i].y - mouse.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-
-        if (dist < maxDist) {
           ctx.beginPath();
-          ctx.moveTo(dots[i].x, dots[i].y);
-          ctx.lineTo(mouse.x, mouse.y);
-          ctx.strokeStyle = `rgba(0, 255, 204, ${1 - dist / maxDist})`;
-          ctx.lineWidth = 0.8;
+          ctx.moveTo(d.x, d.y);
+          ctx.lineTo(d2.x, d2.y);
           ctx.stroke();
         }
       }
-    }
-
-    requestAnimationFrame(draw);
+    });
+    requestAnimationFrame(animate);
   }
 
-  draw();
-
-  window.addEventListener('resize', () => {
-    width = window.innerWidth;
-    height = document.body.scrollHeight;
-    canvas.width = width;
-    canvas.height = height;
-  });
-
-  window.addEventListener('mousemove', (e) => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-  });
-
-  window.addEventListener('mouseout', () => {
-    mouse.x = null;
-    mouse.y = null;
-  });
+  resize();
+  animate();
 }
+
