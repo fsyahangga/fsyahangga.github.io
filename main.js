@@ -370,16 +370,14 @@ function initdotsBg() {
   const canvas = document.getElementById('dots-bg');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
-
   let dots = [];
-  const numDots = 120; // kurangi jumlah titik
-  const maxDist = 80;
+  const numDots = 120, maxDist = 80;
   let mouse = { x: 0, y: 0 };
-  let width, height;
+  let width = 0, height = 0;
 
   function resize() {
     width = canvas.width = window.innerWidth;
-    height = canvas.height = document.body.scrollHeight;
+    height = canvas.height = document.documentElement.scrollHeight;
     dots = Array.from({ length: numDots }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
@@ -392,6 +390,7 @@ function initdotsBg() {
 
   window.addEventListener('resize', resize);
   window.addEventListener('load', resize);
+  window.addEventListener('scroll', resize); // jaga tinggi seiring isi bertambah
   window.addEventListener('mousemove', e => {
     mouse.x = e.clientX;
     mouse.y = e.clientY + window.scrollY;
@@ -399,22 +398,19 @@ function initdotsBg() {
 
   function animate() {
     ctx.clearRect(0, 0, width, height);
-    dots.forEach((d, i) => {
-      d.x += d.dx;
-      d.y += d.dy;
+    for (let i = 0; i < dots.length; i++) {
+      const d = dots[i];
+      d.x += d.dx; d.y += d.dy;
       if (d.x < 0 || d.x > width) d.dx *= -1;
       if (d.y < 0 || d.y > height) d.dy *= -1;
-
-      ctx.beginPath();
-      ctx.arc(d.x, d.y, d.r, 0, 2 * Math.PI);
       ctx.fillStyle = `rgba(0,255,145,${d.o})`;
-      ctx.fill();
+      ctx.beginPath(); ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2); ctx.fill();
 
       for (let j = i + 1; j < dots.length; j++) {
         const d2 = dots[j];
         const dist = Math.hypot(d.x - d2.x, d.y - d2.y);
         if (dist < maxDist) {
-          ctx.strokeStyle = `rgba(0,255,145,${(maxDist - dist) / maxDist * 0.2})`;
+          ctx.strokeStyle = `rgba(0,255,145,${(maxDist - dist)/maxDist * 0.2})`;
           ctx.lineWidth = 0.6;
           ctx.beginPath();
           ctx.moveTo(d.x, d.y);
@@ -422,11 +418,12 @@ function initdotsBg() {
           ctx.stroke();
         }
       }
-    });
+    }
     requestAnimationFrame(animate);
   }
 
   resize();
   animate();
 }
+
 
