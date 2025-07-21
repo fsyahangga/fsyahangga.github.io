@@ -2259,9 +2259,3 @@ section h2::before {
   height: 100%;
   z-index: -1;
 }
-.dot {
-  fill: #00ffcc;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  filter: drop-shadow(0 0 6px #00ffcc);
-}

@@ -2,7 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   initDotsBg();
-  setCanvasHeightToScroll();
+  // setCanvasHeightToScroll();
   initSidebarToggle();
   initSmoothScroll();
   initScrollSpy();
@@ -369,55 +369,67 @@ function AnimateOnScroll(){
 
 
 function initDotsBg() {
-  const svg = document.getElementById("dots-bg-svg");
-  const totalDots = 100;
+  const canvas = document.getElementById("dots-bg");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  let width, height;
   const dots = [];
+  const TOTAL = 80;
 
-  function random(min, max) {
-    return Math.random() * (max - min) + min;
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = document.body.scrollHeight;
+    dots.length = 0;
+    for (let i = 0; i < TOTAL; i++) {
+      dots.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        r: Math.random() * 2 + 0.5,
+        dx: (Math.random() - 0.5) * 0.5,
+        dy: (Math.random() - 0.5) * 0.5,
+        o: Math.random() * 0.5 + 0.2
+      });
+    }
   }
 
-  function createDot() {
-    const cx = random(0, window.innerWidth);
-    const cy = random(0, window.innerHeight + window.scrollY);
-    const r = random(1.5, 3);
-    const delay = random(0, 4000);
+  window.addEventListener("resize", resize);
+  window.addEventListener("scroll", resize);
 
-    const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    dot.setAttribute("class", "dot");
-    dot.setAttribute("cx", cx);
-    dot.setAttribute("cy", cy);
-    dot.setAttribute("r", r);
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+    for (let i = 0; i < dots.length; i++) {
+      const d = dots[i];
+      d.x += d.dx; d.y += d.dy;
 
-    svg.appendChild(dot);
-    dots.push(dot);
+      if (d.x < 0 || d.x > width) d.dx *= -1;
+      if (d.y < 0 || d.y > height) d.dy *= -1;
 
-    setTimeout(() => {
-      dot.style.opacity = 1;
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, d.r, 0, 2 * Math.PI);
+      ctx.fillStyle = `rgba(0,255,145,${d.o})`;
+      ctx.shadowColor = 'rgba(0,255,145,0.4)';
+      ctx.shadowBlur = 4;
+      ctx.fill();
 
-      setTimeout(() => {
-        dot.style.opacity = 0;
-        setTimeout(() => {
-          svg.removeChild(dot);
-          dots.splice(dots.indexOf(dot), 1);
-          createDot(); // regenerate
-        }, 1000); // match fade-out duration
-      }, 4000 + delay);
-    }, delay);
+      // connect neighboring dots
+      for (let j = i + 1; j < dots.length; j++) {
+        const d2 = dots[j];
+        const dist = Math.hypot(d.x - d2.x, d.y - d2.y);
+        if (dist < 80) {
+          ctx.strokeStyle = `rgba(0,255,145,${(80 - dist) / 80 * 0.2})`;
+          ctx.lineWidth = 0.5;
+          ctx.beginPath();
+          ctx.moveTo(d.x, d.y);
+          ctx.lineTo(d2.x, d2.y);
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(animate);
   }
 
-  // Initial batch
-  for (let i = 0; i < totalDots; i++) {
-    createDot();
-  }
-
-  // Update height on resize or scroll
-  const updateSVGHeight = () => {
-    svg.setAttribute("height", document.body.scrollHeight);
-  };
-  window.addEventListener("resize", updateSVGHeight);
-  window.addEventListener("scroll", updateSVGHeight);
-  updateSVGHeight();
+  resize();
+  animate();
 }
 
 
