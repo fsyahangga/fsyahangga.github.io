@@ -407,33 +407,56 @@ function initDotsCanvas() {
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
 
-  const isMobile = window.innerWidth < 768;
-  const totalDots = isMobile ? 30 : 80;
+  const totalDots = window.innerWidth < 768 ? 60 : 200;
 
+  // Buat dots dengan warna gradasi hijau acak
   const dots = Array.from({ length: totalDots }, () => ({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    r: Math.random() * 1.5 + 0.5,
-    speedY: Math.random() * 0.2 + 0.1,
-    alpha: Math.random(),
+    r: Math.random() * 1.2 + 0.4,
+    speedY: Math.random() * 0.3 + 0.1,
+    alpha: Math.random() * 0.5 + 0.3,
     phase: Math.random() * Math.PI * 2,
+    glowCanvas: createGlowCanvas(getRandomGreenHue()) // 👈 simpan canvas glow unik
   }));
+
+  function getRandomGreenHue() {
+    const greenBase = 120;
+    const offset = Math.floor(Math.random() * 30 - 15); // -15 hingga +15
+    return greenBase + offset;
+  }
+
+  function createGlowCanvas(hue) {
+    const size = 20;
+    const glowCanvas = document.createElement('canvas');
+    glowCanvas.width = size;
+    glowCanvas.height = size;
+    const gCtx = glowCanvas.getContext('2d');
+
+    const gradient = gCtx.createRadialGradient(10, 10, 0, 10, 10, 10);
+    gradient.addColorStop(0, `hsla(${hue}, 100%, 70%, 0.8)`);
+    gradient.addColorStop(1, `hsla(${hue}, 100%, 50%, 0)`);
+
+    gCtx.fillStyle = gradient;
+    gCtx.beginPath();
+    gCtx.arc(10, 10, 10, 0, Math.PI * 2);
+    gCtx.fill();
+
+    return glowCanvas;
+  }
 
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     dots.forEach(dot => {
       dot.y += dot.speedY;
       if (dot.y > canvas.height) dot.y = 0;
+      dot.alpha = 0.4 + 0.3 * Math.sin(dot.phase += 0.01);
 
-      dot.alpha = 0.5 + 0.5 * Math.sin(dot.phase += 0.02);
-
-      ctx.beginPath();
-      ctx.arc(dot.x, dot.y, dot.r, 0, 2 * Math.PI);
-      ctx.fillStyle = `rgba(0, 255, 204, ${dot.alpha})`;
-      ctx.shadowColor = 'rgba(0, 255, 204, 0.5)';
-      ctx.shadowBlur = 6;
-      ctx.fill();
+      const size = dot.r * 10;
+      ctx.globalAlpha = dot.alpha;
+      ctx.drawImage(dot.glowCanvas, dot.x - size / 2, dot.y - size / 2, size, size);
     });
+    ctx.globalAlpha = 1;
     requestAnimationFrame(draw);
   }
 
