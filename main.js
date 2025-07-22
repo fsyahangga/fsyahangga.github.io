@@ -385,11 +385,13 @@ function initDotsBg() {
     const cy = Math.random() * height;
     const r = Math.random() * 1.2 + 0.4;
 
-    const triangle = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
-    triangle.setAttribute('points', '10,0 0,20 20,20'); // segitiga
-    triangle.setAttribute('fill', '#00ff99');
-    triangle.style.animationDelay = `${Math.random() * 6}s`;
-    svg.appendChild(triangle);
+    const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    dot.setAttribute('cx', cx);
+    dot.setAttribute('cy', cy);
+    dot.setAttribute('r', r);
+    dot.setAttribute('class', 'dot');
+    dot.style.animationDelay = `${Math.random() * 6}s`;
+    svg.appendChild(dot);
   }
 }
 
