@@ -378,7 +378,7 @@ function initDotsBg() {
   svg.innerHTML = ''; // reset
 
   const isMobile = width < 768;
-  const totalDots = isMobile ? 30 : 80; // ringan di mobile
+  const totalDots = isMobile ? 30 : 200; // ringan di mobile
 
   for (let i = 0; i < totalDots; i++) {
     const cx = Math.random() * width;
