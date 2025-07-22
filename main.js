@@ -407,7 +407,7 @@ function initDotsCanvas() {
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
 
-  const totalDots = window.innerWidth < 768 ? 60 : 300;
+  const totalDots = window.innerWidth < 768 ? 60 : 500;
 
   // Buat dots dengan warna gradasi hijau acak
   const dots = Array.from({ length: totalDots }, () => ({
