@@ -1,7 +1,7 @@
 // main.js
 
 document.addEventListener("DOMContentLoaded", () => {
-  // initDotsBg();
+  initDotsBg();
   // setCanvasHeightToScroll();
   initSidebarToggle();
   initSmoothScroll();
@@ -29,10 +29,10 @@ window.addEventListener('scroll', () => {
     nav.style.background = 'rgba(30, 41, 59, 0.6)';
   }
 });
-// window.addEventListener("resize", () => {
-//   resizeDotsCanvas();
+window.addEventListener("resize", () => {
+  initDotsBg();
 
-// });
+});
 // window.addEventListener('load', resizeDotsCanvas);
 
 function resizeDotsCanvas() {
@@ -367,66 +367,29 @@ function AnimateOnScroll(){
 }
 
 function initDotsBg() {
-  const canvas = document.getElementById("dots-bg");
-  if (!canvas) return;
-  const ctx = canvas.getContext("2d");
-  let width = 0, height = 0;
-  const DOT_COUNT = 80;
-  const dots = [];
+  const svg = document.getElementById('dots-bg-svg');
+  const width = window.innerWidth;
+  const height = document.body.scrollHeight;
 
-  function resizeCanvas() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = document.body.scrollHeight;
-    dots.length = 0;
-    for (let i = 0; i < DOT_COUNT; i++) {
-      dots.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        r: Math.random() * 2 + 0.5,
-        dx: (Math.random() - 0.5) * 0.5,
-        dy: (Math.random() - 0.5) * 0.5,
-        o: Math.random() * 0.5 + 0.2
-      });
-    }
+  svg.setAttribute('width', width);
+  svg.setAttribute('height', height);
+  svg.innerHTML = ''; // reset
+
+  const totalDots = Math.floor((width * height) / 12000);
+
+  for (let i = 0; i < totalDots; i++) {
+    const cx = Math.random() * width;
+    const cy = Math.random() * height;
+    const r = Math.random() * 1.5 + 0.5;
+    const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    dot.setAttribute('cx', cx);
+    dot.setAttribute('cy', cy);
+    dot.setAttribute('r', r);
+    dot.setAttribute('class', 'dot');
+    dot.style.animationDelay = `${Math.random() * 6}s`;
+    svg.appendChild(dot);
   }
-
-  window.addEventListener("resize", resizeCanvas);
-  window.addEventListener("scroll", resizeCanvas);
-
-  function animate() {
-    ctx.clearRect(0, 0, width, height);
-    for (let i = 0; i < dots.length; i++) {
-      const d = dots[i];
-      d.x += d.dx;
-      d.y += d.dy;
-      if (d.x < 0 || d.x > width) d.dx *= -1;
-      if (d.y < 0 || d.y > height) d.dy *= -1;
-
-      ctx.beginPath();
-      ctx.arc(d.x, d.y, d.r, 0, 2 * Math.PI);
-      ctx.fillStyle = `rgba(0,255,145,${d.o})`;
-      ctx.shadowColor = 'rgba(0,255,145,0.4)';
-      ctx.shadowBlur = 4;
-      ctx.fill();
-
-      for (let j = i + 1; j < dots.length; j++) {
-        const d2 = dots[j];
-        const dist = Math.hypot(d.x - d2.x, d.y - d2.y);
-        if (dist < 80) {
-          ctx.strokeStyle = `rgba(0,255,145,${(80 - dist)/80 * 0.2})`;
-          ctx.lineWidth = 0.5;
-          ctx.beginPath();
-          ctx.moveTo(d.x, d.y);
-          ctx.lineTo(d2.x, d2.y);
-          ctx.stroke();
-        }
-      }
-    }
-    requestAnimationFrame(animate);
-  }
-
-  resizeCanvas();
-  animate();
 }
+
 
 
