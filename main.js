@@ -2,7 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   initDotsBg();
-  // setCanvasHeightToScroll();
+  initDotsCanvas();
   initSidebarToggle();
   initSmoothScroll();
   initScrollSpy();
@@ -393,6 +393,51 @@ function initDotsBg() {
     dot.style.animationDelay = `${Math.random() * 6}s`;
     svg.appendChild(dot);
   }
+}
+
+function initDotsCanvas() {
+  const canvas = document.getElementById('dots-canvas');
+  const ctx = canvas.getContext('2d');
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = document.body.scrollHeight;
+  }
+
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  const isMobile = window.innerWidth < 768;
+  const totalDots = isMobile ? 30 : 80;
+
+  const dots = Array.from({ length: totalDots }, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 1.5 + 0.5,
+    speedY: Math.random() * 0.2 + 0.1,
+    alpha: Math.random(),
+    phase: Math.random() * Math.PI * 2,
+  }));
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    dots.forEach(dot => {
+      dot.y += dot.speedY;
+      if (dot.y > canvas.height) dot.y = 0;
+
+      dot.alpha = 0.5 + 0.5 * Math.sin(dot.phase += 0.02);
+
+      ctx.beginPath();
+      ctx.arc(dot.x, dot.y, dot.r, 0, 2 * Math.PI);
+      ctx.fillStyle = `rgba(0, 255, 204, ${dot.alpha})`;
+      ctx.shadowColor = 'rgba(0, 255, 204, 0.5)';
+      ctx.shadowBlur = 6;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+
+  draw();
 }
 
 
