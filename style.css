@@ -2265,6 +2265,7 @@ section h2::before {
   opacity: 0;
   will-change: opacity, transform;
   animation: fadeInOut 8s infinite ease-in-out;
+  filter: drop-shadow(0 0 4px #00ffcc) drop-shadow(0 0 8px #00ffcc);
 }
 
 @keyframes fadeInOut {
