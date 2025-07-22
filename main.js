@@ -30,8 +30,8 @@ window.addEventListener('scroll', () => {
   }
 });
 window.addEventListener("resize", () => {
-  initDotsBg();
-
+  clearTimeout(window._dotsResizeTimer);
+  window._dotsResizeTimer = setTimeout(initDotsBg, 300); 
 });
 // window.addEventListener('load', resizeDotsCanvas);
 
@@ -368,6 +368,8 @@ function AnimateOnScroll(){
 
 function initDotsBg() {
   const svg = document.getElementById('dots-bg-svg');
+  if (!svg) return;
+
   const width = window.innerWidth;
   const height = document.body.scrollHeight;
 
@@ -375,12 +377,14 @@ function initDotsBg() {
   svg.setAttribute('height', height);
   svg.innerHTML = ''; // reset
 
-  const totalDots = Math.floor((width * height) / 12000);
+  const isMobile = width < 768;
+  const totalDots = isMobile ? 30 : 80; // ringan di mobile
 
   for (let i = 0; i < totalDots; i++) {
     const cx = Math.random() * width;
     const cy = Math.random() * height;
-    const r = Math.random() * 1.5 + 0.5;
+    const r = Math.random() * 1.2 + 0.4;
+
     const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
     dot.setAttribute('cx', cx);
     dot.setAttribute('cy', cy);

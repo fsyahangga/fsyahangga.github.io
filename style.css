@@ -2262,12 +2262,13 @@ section h2::before {
 
 .dot {
   fill: #00ffcc;
-  filter: drop-shadow(0 0 4px #00ffcc) drop-shadow(0 0 8px #00ffcc);
   opacity: 0;
-  animation: fadeInOut 6s infinite ease-in-out;
+  will-change: opacity, transform;
+  animation: fadeInOut 8s infinite ease-in-out;
 }
 
 @keyframes fadeInOut {
   0%, 100% { opacity: 0; transform: scale(0.5); }
-  50% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1); }
 }
+
