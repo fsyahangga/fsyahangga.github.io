@@ -378,20 +378,18 @@ function initDotsBg() {
   svg.innerHTML = ''; // reset
 
   const isMobile = width < 768;
-  const totalDots = isMobile ? 30 : 200; // ringan di mobile
+  const totalDots = isMobile ? 30 : 300; // ringan di mobile
 
   for (let i = 0; i < totalDots; i++) {
     const cx = Math.random() * width;
     const cy = Math.random() * height;
     const r = Math.random() * 1.2 + 0.4;
 
-    const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    dot.setAttribute('cx', cx);
-    dot.setAttribute('cy', cy);
-    dot.setAttribute('r', r);
-    dot.setAttribute('class', 'dot');
-    dot.style.animationDelay = `${Math.random() * 6}s`;
-    svg.appendChild(dot);
+    const triangle = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+    triangle.setAttribute('points', '10,0 0,20 20,20'); // segitiga
+    triangle.setAttribute('fill', '#00ff99');
+    triangle.style.animationDelay = `${Math.random() * 6}s`;
+    svg.appendChild(triangle);
   }
 }
 
@@ -407,7 +405,7 @@ function initDotsCanvas() {
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
 
-  const totalDots = window.innerWidth < 768 ? 60 : 200;
+  const totalDots = window.innerWidth < 768 ? 60 : 300;
 
   // Buat dots dengan warna gradasi hijau acak
   const dots = Array.from({ length: totalDots }, () => ({
