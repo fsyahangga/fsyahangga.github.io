@@ -1816,7 +1816,7 @@ section h2::before {
   border: 2px solid #38bdf8;
   box-shadow: 0 0 20px #38bdf8, 0 0 30px #0ea5e9, 0 0 40px #06b6d4;
   text-align: center;
-  width: 100px;
+  width: 120px;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   animation: floatIn 0.8s ease forwards;
